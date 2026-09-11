@@ -95,8 +95,8 @@ export default function Locations({ cities, selectedCity, setSelectedCity, selec
                     <span className="flex items-center gap-1.5">
                       <Phone size={13} className="text-gray-400" /> Helpline:
                     </span>
-                    <a href={`tel:${b.phone || '021111236837'}`} className="font-bold text-[#E31B23]">
-                      {b.phone || '021-111-236-837'}
+                    <a href={`tel:${b.phone || '03312130709'}`} className="font-bold text-[#E31B23]">
+                      {b.phone || '0331-2130709'}
                     </a>
                   </div>
                 </div>

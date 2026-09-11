@@ -64,7 +64,7 @@ export default function FloatingActions() {
 
         {/* WhatsApp Chat Button */}
         <a
-          href="https://wa.me/923001112368?text=Hello%20Center%20Pizza%21%20I%20would%20like%20to%20place%20an%20order."
+          href="https://wa.me/923312130709?text=Hello%20Center%20Pizza%21%20I%20would%20like%20to%20place%20an%20order."
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Order via WhatsApp"

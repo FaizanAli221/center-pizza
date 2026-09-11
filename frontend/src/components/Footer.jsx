@@ -119,8 +119,8 @@ export default function Footer() {
               <div className="flex items-start gap-2.5">
                 <Phone size={16} className="text-[#E31B23] shrink-0 mt-0.5" />
                 <div>
-                  <a href="tel:021111236837" className="block text-white font-bold text-sm hover:text-amber-300 transition-colors">021-111-236-837</a>
-                  <span className="text-[11px] text-gray-500">Universal Access Number (UAN)</span>
+                  <a href="tel:03312130709" className="block text-white font-bold text-sm hover:text-amber-300 transition-colors">0331-2130709</a>
+                  <span className="text-[11px] text-gray-500">Helpline & WhatsApp Orders</span>
                 </div>
               </div>
 

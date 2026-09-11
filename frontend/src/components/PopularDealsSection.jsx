@@ -9,6 +9,7 @@ export default function PopularDealsSection({ deals, onAddToCart, onOpenCustomiz
     price: 1333,
     originalPrice: 2099,
     category: 'Pizza Deals',
+    image: '/images/midnight-deal.jpg',
     description: 'Deal 1: 1 Large Pizza 12" starting from 11:30 PM. Add on 500ml Coke at Rs. 150.',
   };
 
@@ -17,6 +18,7 @@ export default function PopularDealsSection({ deals, onAddToCart, onOpenCustomiz
     name: 'DOUBLE THE FUN - MEDIUM',
     price: 2099,
     category: 'Pizza Deals',
+    image: '/images/double-the-fun.jpg',
     description: '2 Medium Pizzas of your choice with extra cheese.',
   };
 
@@ -25,6 +27,7 @@ export default function PopularDealsSection({ deals, onAddToCart, onOpenCustomiz
     name: 'SHARE BOX 2 PERSON',
     price: 1699,
     category: 'Pizza Deals',
+    image: '/images/share-box-deal.jpg',
     description: '2 Small Pizza, 2 Pcs Garlic Bread, Spin Roll, Fries, 2 Soft Drinks.',
   };
 
@@ -33,10 +36,9 @@ export default function PopularDealsSection({ deals, onAddToCart, onOpenCustomiz
     name: 'COMBO DEAL 02',
     price: 1099,
     category: 'Pizza Deals',
+    image: '/images/combo-deal-02.jpg',
     description: 'Stuffed Pizza Roll loaded with cheese & chicken, crispy fries, and 2 chilled soft drinks.',
   };
-
-  const items = [midnightDeal, doubleFunDeal, shareBoxDeal, comboDeal];
 
   return (
     <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
@@ -57,60 +59,41 @@ export default function PopularDealsSection({ deals, onAddToCart, onOpenCustomiz
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {/* Card 1: MIDNIGHT DEALS */}
         <div className="bg-white rounded-3xl border border-gray-200 overflow-hidden shadow-xs hover:shadow-xl transition-all duration-300 flex flex-col justify-between group">
-          {/* Banner Graphic */}
-          <div className="relative aspect-4/3 bg-gradient-to-b from-[#0a0e17] via-[#141b2d] to-[#0f172a] p-4 flex flex-col justify-between text-white overflow-hidden">
-            {/* Moon glow aura */}
-            <div className="absolute top-2 right-2 w-14 h-14 rounded-full bg-white/10 blur-md pointer-events-none" />
-            <div className="absolute -top-6 -right-6 w-24 h-24 rounded-full bg-amber-200/20 blur-xl pointer-events-none" />
+          {/* Banner Graphic with Generated Photo */}
+          <div className="relative aspect-4/3 bg-gray-950 p-4 flex flex-col justify-between text-white overflow-hidden">
+            <img
+              src={midnightDeal.image || '/images/midnight-deal.jpg'}
+              alt={midnightDeal.name}
+              className="absolute inset-0 w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500 opacity-70"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/70" />
 
             {/* Brand badge & Header */}
             <div className="relative z-10">
               <div className="flex items-center justify-between">
-                <span className="text-[10px] font-black bg-[#E31B23] text-white px-2 py-0.5 rounded-full uppercase tracking-wider">
+                <span className="text-[10px] font-black bg-[#E31B23] text-white px-2 py-0.5 rounded-full uppercase tracking-wider shadow">
                   Center Pizza
                 </span>
-                <span className="text-[10px] font-bold text-amber-300 flex items-center gap-1">
+                <span className="text-[10px] font-bold text-amber-300 flex items-center gap-1 drop-shadow">
                   <Sparkles size={11} /> 11:30 PM Onwards
                 </span>
               </div>
-              <h4 className="text-xl font-black italic tracking-wide text-white mt-1">
+              <h4 className="text-xl font-black italic tracking-wide text-white mt-1 drop-shadow">
                 Midnight Deals
               </h4>
             </div>
 
-            {/* Pricing Offer & Graphic */}
-            <div className="relative z-10 my-auto flex items-center justify-between gap-2">
-              <div>
-                <span className="text-[11px] font-bold text-gray-300 block">Deal 1</span>
-                <span className="text-sm font-black text-white block">1 LARGE PIZZA 12"</span>
-                <div className="flex items-baseline gap-2 mt-0.5">
-                  <span className="text-2xl sm:text-3xl font-black text-amber-400">RS. 1333</span>
-                  <span className="text-xs font-bold text-gray-400 line-through">RS. 2099</span>
-                </div>
-                <span className="text-[9px] font-bold text-amber-300 bg-black/40 px-2 py-0.5 rounded mt-1 inline-block">
-                  + Add 500ml Coke Rs. 150
-                </span>
+            {/* Pricing Offer */}
+            <div className="relative z-10 mt-auto mb-1">
+              <span className="text-[11px] font-bold text-gray-200 block drop-shadow">Deal 1</span>
+              <span className="text-sm font-black text-white block drop-shadow">1 LARGE PIZZA 12"</span>
+              <div className="flex items-baseline gap-2 mt-0.5">
+                <span className="text-2xl sm:text-3xl font-black text-amber-400 drop-shadow">RS. 1333</span>
+                <span className="text-xs font-bold text-gray-300 line-through drop-shadow">RS. 2099</span>
               </div>
-
-              {/* Pizza Visual */}
-              <div className="w-20 h-20 sm:w-22 sm:h-22 shrink-0 rounded-full border-2 border-amber-300/40 overflow-hidden shadow-lg"
-                style={{
-                  background: 'radial-gradient(circle, #f97316 20%, #ea580c 40%, #c2410c 70%, #7c2d12 100%)',
-                }}
-              >
-                <div className="w-full h-full rounded-full bg-[radial-gradient(#fde047_15%,#dc2626_45%,#7f1d1d_85%)] relative">
-                  {/* Pepperoni dots */}
-                  {[
-                    [25, 25], [55, 20], [75, 40], [30, 60], [60, 65], [45, 45]
-                  ].map(([x, y], i) => (
-                    <div
-                      key={i}
-                      className="absolute w-3 h-3 rounded-full bg-[#991b1b] border border-[#7f1d1d] shadow-xs"
-                      style={{ left: `${x}%`, top: `${y}%` }}
-                    />
-                  ))}
-                </div>
-              </div>
+              <span className="text-[9px] font-bold text-amber-300 bg-black/60 backdrop-blur-xs px-2 py-0.5 rounded mt-1 inline-block border border-amber-300/30">
+                + Add 500ml Coke Rs. 150
+              </span>
             </div>
 
             {/* Circular Red Add Button Overlaid */}
@@ -135,46 +118,26 @@ export default function PopularDealsSection({ deals, onAddToCart, onOpenCustomiz
 
         {/* Card 2: DOUBLE THE FUN - MEDIUM */}
         <div className="bg-white rounded-3xl border border-gray-200 overflow-hidden shadow-xs hover:shadow-xl transition-all duration-300 flex flex-col justify-between group">
-          {/* Banner Graphic with Gingham Green Checkerboard */}
-          <div
-            className="relative aspect-4/3 p-4 flex flex-col justify-between text-white overflow-hidden"
-            style={{
-              backgroundColor: '#eaf4e7',
-              backgroundImage: `
-                linear-gradient(45deg, #bedcb8 25%, transparent 25%), 
-                linear-gradient(-45deg, #bedcb8 25%, transparent 25%), 
-                linear-gradient(45deg, transparent 75%, #bedcb8 75%), 
-                linear-gradient(-45deg, transparent 75%, #bedcb8 75%)
-              `,
-              backgroundSize: '24px 24px',
-              backgroundPosition: '0 0, 0 12px, 12px -12px, -12px 0px',
-            }}
-          >
+          {/* Banner Graphic with Generated Photo */}
+          <div className="relative aspect-4/3 p-4 flex flex-col justify-between text-white overflow-hidden bg-gray-900">
+            <img
+              src={doubleFunDeal.image || '/images/double-the-fun.jpg'}
+              alt={doubleFunDeal.name}
+              className="absolute inset-0 w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/60" />
+
             {/* Top Red Ribbon Banner */}
             <div className="relative z-10">
-              <div className="inline-block bg-[#E31B23] text-white font-black text-xs sm:text-sm px-3 py-1 rounded-md shadow-md uppercase tracking-tight">
+              <div className="inline-block bg-[#E31B23] text-white font-black text-xs sm:text-sm px-3 py-1 rounded-md shadow-lg uppercase tracking-tight">
                 DOUBLE THE FUN
               </div>
             </div>
 
-            {/* 2 Pizzas Visual */}
-            <div className="relative z-10 my-auto flex items-center justify-center gap-2">
-              <div className="w-18 h-18 sm:w-20 sm:h-20 rounded-full border-2 border-amber-400 overflow-hidden shadow-xl"
-                style={{ background: 'radial-gradient(circle, #fde047 30%, #f97316 60%, #b45309 100%)' }}
-              >
-                <div className="w-full h-full flex items-center justify-center text-xs font-black text-amber-900 opacity-60">🍕</div>
-              </div>
-              <div className="w-20 h-20 sm:w-22 sm:h-22 -ml-6 mt-3 rounded-full border-2 border-amber-300 overflow-hidden shadow-2xl z-10"
-                style={{ background: 'radial-gradient(circle, #fef08a 25%, #ea580c 65%, #9a3412 100%)' }}
-              >
-                <div className="w-full h-full flex items-center justify-center text-xs font-black text-red-900 opacity-60">🍕</div>
-              </div>
-            </div>
-
             {/* Bottom Price Tag */}
-            <div className="relative z-10">
-              <div className="inline-block bg-[#E31B23] text-white font-black px-3 py-1 rounded-lg shadow-md">
-                <span className="text-xs block text-white/90">2 MEDIUM PIZZA</span>
+            <div className="relative z-10 mt-auto">
+              <div className="inline-block bg-[#E31B23] text-white font-black px-3 py-1 rounded-lg shadow-lg">
+                <span className="text-[10px] block text-white/90 uppercase tracking-wider">2 MEDIUM PIZZA</span>
                 <span className="text-lg sm:text-xl font-black">RS. 2099</span>
               </div>
             </div>
@@ -201,29 +164,26 @@ export default function PopularDealsSection({ deals, onAddToCart, onOpenCustomiz
 
         {/* Card 3: SHARE BOX 2 PERSON */}
         <div className="bg-white rounded-3xl border border-gray-200 overflow-hidden shadow-xs hover:shadow-xl transition-all duration-300 flex flex-col justify-between group">
-          {/* Banner Graphic with Rustic Green Background */}
-          <div className="relative aspect-4/3 bg-gradient-to-br from-[#194d23] via-[#23632f] to-[#123617] p-4 flex flex-col justify-between text-white overflow-hidden">
-            {/* Leaf decorative hints */}
-            <div className="absolute -top-4 -right-4 w-20 h-20 bg-green-400/20 rounded-full blur-lg pointer-events-none" />
+          {/* Banner Graphic with Generated Photo */}
+          <div className="relative aspect-4/3 bg-gray-900 p-4 flex flex-col justify-between text-white overflow-hidden">
+            <img
+              src={shareBoxDeal.image || '/images/share-box-deal.jpg'}
+              alt={shareBoxDeal.name}
+              className="absolute inset-0 w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-black/60" />
 
             <div className="relative z-10">
-              <div className="inline-block bg-amber-400 text-gray-950 font-black text-[10px] sm:text-xs px-2.5 py-0.5 rounded uppercase tracking-wider">
+              <div className="inline-block bg-amber-400 text-gray-950 font-black text-[10px] sm:text-xs px-2.5 py-0.5 rounded uppercase tracking-wider shadow">
                 SHARE BOX 01
               </div>
-              <h4 className="text-base sm:text-lg font-black text-yellow-300 tracking-tight mt-1 leading-tight">
+              <h4 className="text-base sm:text-lg font-black text-yellow-300 tracking-tight mt-1 leading-tight drop-shadow">
                 SHARE THE LOVE CHEESY WAY
               </h4>
             </div>
 
-            {/* Graphic of Box Items */}
-            <div className="relative z-10 my-auto bg-black/30 backdrop-blur-xs p-2 rounded-xl border border-white/10 text-[10px] font-bold text-gray-200 leading-snug">
-              <span>• 2 Small Pizzas</span><br />
-              <span>• 2 Pcs Garlic Bread · Spin Roll · Fries</span><br />
-              <span>• 2 Chilled Soft Drinks</span>
-            </div>
-
-            <div className="relative z-10 flex items-center gap-2">
-              <span className="text-2xl font-black text-amber-300">RS. 1699</span>
+            <div className="relative z-10 mt-auto">
+              <span className="text-2xl font-black text-amber-300 drop-shadow">RS. 1699</span>
             </div>
 
             {/* Circular Red Add Button Overlaid */}
@@ -248,37 +208,24 @@ export default function PopularDealsSection({ deals, onAddToCart, onOpenCustomiz
 
         {/* Card 4: COMBO DEAL 02 */}
         <div className="bg-white rounded-3xl border border-gray-200 overflow-hidden shadow-xs hover:shadow-xl transition-all duration-300 flex flex-col justify-between group">
-          {/* Banner Graphic with Stuffed Rolls & Sprite */}
-          <div className="relative aspect-4/3 bg-gradient-to-br from-gray-100 via-gray-200 to-amber-50 p-4 flex flex-col justify-between overflow-hidden">
+          {/* Banner Graphic with Generated Photo */}
+          <div className="relative aspect-4/3 bg-gray-900 p-4 flex flex-col justify-between overflow-hidden">
+            <img
+              src={comboDeal.image || '/images/combo-deal-02.jpg'}
+              alt={comboDeal.name}
+              className="absolute inset-0 w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-black/60" />
+
             {/* Red Box Stuffed Roll Badge */}
             <div className="relative z-10">
-              <span className="inline-block bg-[#E31B23] text-white font-black text-[10px] sm:text-xs px-2.5 py-1 rounded shadow uppercase tracking-wide">
+              <span className="inline-block bg-[#E31B23] text-white font-black text-[10px] sm:text-xs px-2.5 py-1 rounded shadow-lg uppercase tracking-wide">
                 STUFFED PIZZA ROLL
               </span>
             </div>
 
-            {/* Roll and Drink Illustration */}
-            <div className="relative z-10 my-auto flex items-center justify-center gap-3">
-              {/* Golden Stuffed Roll */}
-              <div className="w-24 h-12 bg-gradient-to-r from-amber-400 via-amber-500 to-amber-600 rounded-xl shadow-md border border-amber-700/30 flex items-center justify-around px-2 transform -rotate-3">
-                <div className="w-3 h-8 bg-white/70 rounded-full blur-[1px]" />
-                <div className="w-3 h-8 bg-red-700/60 rounded-full blur-[1px]" />
-                <div className="w-3 h-8 bg-green-700/60 rounded-full blur-[1px]" />
-              </div>
-
-              {/* 2 Sprite Bottles */}
-              <div className="flex -space-x-2">
-                <div className="w-7 h-16 bg-gradient-to-b from-[#10b981] to-[#047857] rounded-t-lg rounded-b-md shadow-md border border-emerald-900/30 flex flex-col items-center justify-center text-[7px] font-black text-white">
-                  Sprite
-                </div>
-                <div className="w-7 h-16 bg-gradient-to-b from-[#10b981] to-[#047857] rounded-t-lg rounded-b-md shadow-md border border-emerald-900/30 flex flex-col items-center justify-center text-[7px] font-black text-white transform translate-y-1">
-                  Sprite
-                </div>
-              </div>
-            </div>
-
-            <div className="relative z-10">
-              <span className="text-xl sm:text-2xl font-black text-[#2D7A38]">RS. 1099</span>
+            <div className="relative z-10 mt-auto">
+              <span className="text-2xl font-black text-amber-300 drop-shadow">RS. 1099</span>
             </div>
 
             {/* Circular Red Add Button Overlaid */}

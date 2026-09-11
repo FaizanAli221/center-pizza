@@ -244,7 +244,20 @@ export default function HeritagePizzaCard({ item, onAddToCart, onOpenCustomize }
       {/* Cultural Green Frame Image Container */}
       <div className="relative p-2.5 sm:p-3 bg-gray-50 flex items-center justify-center">
         <CulturalFrame flavor={item.name}>
-          <TopDownPizza flavor={item.name} />
+          {item.image ? (
+            <div className="relative w-[88%] h-[88%] rounded-full shadow-2xl overflow-hidden border-2 border-amber-400/50 flex items-center justify-center bg-[#1a4223]">
+              <img
+                src={item.image}
+                alt={item.name}
+                className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
+                onError={(e) => {
+                  e.target.style.display = 'none';
+                }}
+              />
+            </div>
+          ) : (
+            <TopDownPizza flavor={item.name} />
+          )}
           <RegionalBadge badgeText={badgeUrdu} />
         </CulturalFrame>
       </div>
