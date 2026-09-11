@@ -309,7 +309,7 @@ export default function Home({ menuItems, onAddToCart, onOpenCustomize, city, on
         </div>
       </section>
 
-      {/* Why California Pizza Features */}
+      {/* Why Center Pizza Features */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div className="bg-white p-6 rounded-2xl border border-gray-200 text-center flex flex-col items-center">

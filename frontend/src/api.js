@@ -1,5 +1,5 @@
 /**
- * California Pizza API Client
+ * Center Pizza API Client
  * Facilitates communication between frontend and Express backend.
  */
 

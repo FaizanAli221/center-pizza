@@ -45,7 +45,7 @@ export default function TrackOrder() {
           Track Your Pizza Order
         </h1>
         <p className="text-xs sm:text-sm text-gray-500 mt-2">
-          Enter your California Pizza Order ID (e.g. CP-MTXALL3Z-0TDC) to view real-time delivery status.
+          Enter your Center Pizza Order ID (e.g. CP-MTXALL3Z-0TDC) to view real-time delivery status.
         </p>
       </div>
 

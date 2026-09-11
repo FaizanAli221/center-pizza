@@ -18,7 +18,7 @@ export default function About() {
           Our Heritage & Passion
         </span>
         <h1 className="text-3xl sm:text-5xl font-black text-gray-900 tracking-tight mt-1">
-          About California Pizza
+          About Center Pizza
         </h1>
         <p className="text-xs sm:text-base text-gray-600 mt-3 leading-relaxed">
           Pioneering bold, mouthwatering flavours across Pakistan. Combining American hand-tossed crust traditions with authentic Pakistani culinary heritage.
@@ -35,7 +35,7 @@ export default function About() {
             United By Flavour, Driven by Quality
           </h2>
           <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">
-            California Pizza was founded on a simple yet ambitious belief: that pizza in Pakistan should never be ordinary. We set out to craft recipes that blend traditional American pan-pizza craftsmanship with the rich, aromatic spices of Pakistan.
+            Center Pizza was founded on a simple yet ambitious belief: that pizza in Pakistan should never be ordinary. We set out to craft recipes that blend traditional American pan-pizza craftsmanship with the rich, aromatic spices of Pakistan.
           </p>
           <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">
             From our iconic Sindhi Achari to smoky Balochi Tikka and Khyber Green Boti, our creations are inspired by the distinct flavors of our homeland.

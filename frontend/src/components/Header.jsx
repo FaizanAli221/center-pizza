@@ -19,7 +19,6 @@ export default function Header({
   onOpenLocation,
   cartCount,
   onOpenCart,
-  apiOnline,
   orderType,
   setOrderType,
 }) {
@@ -44,30 +43,14 @@ export default function Header({
               <Clock size={13} className="text-white/80" /> Delivery: 11:00 AM - 03:00 AM
             </span>
             <a
-              href="tel:02111753753"
+              href="tel:021111236837"
               className="flex items-center gap-1.5 font-bold hover:text-white/80 transition-colors"
             >
-              <Phone size={13} /> UAN: 021-111-753-753
+              <Phone size={13} /> UAN: 021-111-236-837
             </a>
           </div>
 
           <div className="flex items-center gap-3">
-            {/* Live API Health Pill */}
-            <div
-              className={`flex items-center gap-1.5 text-[10px] font-extrabold px-2.5 py-0.5 rounded-full ${
-                apiOnline
-                  ? 'bg-green-500/20 text-white border border-green-300/40'
-                  : 'bg-amber-500/20 text-white border border-amber-300/40'
-              }`}
-            >
-              <span
-                className={`w-1.5 h-1.5 rounded-full ${
-                  apiOnline ? 'bg-green-300 animate-pulse' : 'bg-amber-300'
-                }`}
-              />
-              <span>{apiOnline ? 'API LIVE' : 'OFFLINE'}</span>
-            </div>
-
             {/* Quick Order Type Selector */}
             <div className="bg-black/20 rounded-full p-0.5 flex text-[10px] font-bold">
               <button
@@ -100,18 +83,19 @@ export default function Header({
             {/* Logo */}
             <Link to="/" className="flex items-center gap-2 group">
               <div className="bg-[#E31B23] text-white p-2 rounded-2xl shadow-md group-hover:scale-105 transition-transform flex flex-col items-center justify-center w-12 h-12">
-                <span className="font-black text-xs leading-none">CALI</span>
-                <span className="text-[8px] font-extrabold text-amber-300 tracking-wider">PIZZA</span>
+                <span className="font-black text-[9px] leading-none tracking-tight">CENTER</span>
+                <span className="text-[7px] font-extrabold text-amber-300 tracking-wider">PIZZA</span>
               </div>
               <div className="leading-none">
                 <span className="text-xl sm:text-2xl font-black tracking-tight text-[#E31B23]">
-                  California
+                  Center
                 </span>
                 <span className="block text-[10px] font-black tracking-[0.25em] text-[#2D7A38]">
                   PIZZA
                 </span>
               </div>
             </Link>
+
 
             {/* Desktop Navigation Links */}
             <nav className="hidden md:flex items-center gap-1 lg:gap-2">

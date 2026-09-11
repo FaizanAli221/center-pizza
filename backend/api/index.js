@@ -18,7 +18,7 @@ const app = express();
 // Allow the configured frontend origin(s), or "*" for local/demo use.
 // Set FRONTEND_ORIGIN in your environment/Vercel project settings to a
 // comma-separated list of allowed origins for production, e.g.
-//   FRONTEND_ORIGIN=https://californiapizza.com.pk,https://staging.californiapizza.com.pk
+//   FRONTEND_ORIGIN=https://centerpizza.com.pk,https://staging.centerpizza.com.pk
 const allowedOrigins = (process.env.FRONTEND_ORIGIN || "*")
   .split(",")
   .map((origin) => origin.trim())
@@ -41,7 +41,7 @@ app.use(express.urlencoded({ extended: true }));
 
 app.get("/", (req, res) => {
   res.status(200).json({
-    service: "california-pizza-api",
+    service: "center-pizza-api",
     message: "API is running. See /api/health for status.",
     endpoints: [
       "GET  /api/health",
@@ -73,7 +73,7 @@ app.use(errorHandler);
 if (require.main === module) {
   const PORT = process.env.PORT || 3000;
   app.listen(PORT, () => {
-    console.log(`California Pizza API listening on http://localhost:${PORT}`);
+    console.log(`Center Pizza API listening on http://localhost:${PORT}`);
   });
 }
 

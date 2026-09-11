@@ -64,7 +64,7 @@ export default function Menu({ menuItems, onAddToCart, onOpenCustomize }) {
           Explore Our Flavours
         </span>
         <h1 className="text-3xl sm:text-4xl font-black text-gray-900 tracking-tight mt-1">
-          Full California Pizza Menu
+          Full Center Pizza Menu
         </h1>
         <p className="text-xs sm:text-sm text-gray-500 mt-2">
           From mouthwatering stuffed rolls to our giant jumbo pizzas, find your favorite meal.

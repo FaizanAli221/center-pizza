@@ -18,7 +18,7 @@ export default function Locations({ cities, selectedCity, setSelectedCity, selec
           Our Branches Across Pakistan
         </h1>
         <p className="text-xs sm:text-sm text-gray-500 mt-2">
-          Find your nearest California Pizza branch for dine-in, takeaway, or lightning-fast home delivery.
+          Find your nearest Center Pizza branch for dine-in, takeaway, or lightning-fast home delivery.
         </p>
       </div>
 
@@ -95,8 +95,8 @@ export default function Locations({ cities, selectedCity, setSelectedCity, selec
                     <span className="flex items-center gap-1.5">
                       <Phone size={13} className="text-gray-400" /> Helpline:
                     </span>
-                    <a href={`tel:${b.phone || '02111753753'}`} className="font-bold text-[#E31B23]">
-                      {b.phone || '021-111-753-753'}
+                    <a href={`tel:${b.phone || '021111236837'}`} className="font-bold text-[#E31B23]">
+                      {b.phone || '021-111-236-837'}
                     </a>
                   </div>
                 </div>

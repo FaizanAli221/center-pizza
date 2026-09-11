@@ -1,7 +1,7 @@
 {
-  "name": "california-pizza-api",
+  "name": "center-pizza-api",
   "version": "1.0.0",
-  "description": "Lightweight serverless REST API (Express on Vercel) powering a California Pizza / Pizza Hut style food-ordering web app.",
+  "description": "Lightweight serverless REST API (Express on Vercel) powering a Center Pizza food-ordering web app.",
   "main": "api/index.js",
   "type": "commonjs",
   "scripts": {

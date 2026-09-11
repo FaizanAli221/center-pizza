@@ -1,4 +1,4 @@
-# California Pizza API
+# Center Pizza API
 
 A lightweight, production-ready serverless REST API built with **Node.js + Express**,
 designed to deploy on **Vercel** with zero database setup. Powers a food-ordering
@@ -7,7 +7,7 @@ frontend (menu browsing, city/branch selection, order placement).
 ## Project structure
 
 ```
-california-pizza-api/
+center-pizza-api/
 ├── api/
 │   └── index.js          # Express app + Vercel serverless entry point
 ├── routes/
@@ -64,7 +64,7 @@ Liveness check.
 ```json
 {
   "status": "ok",
-  "service": "california-pizza-api",
+  "service": "center-pizza-api",
   "timestamp": "2026-09-11T10:00:00.000Z",
   "environment": "production",
   "uptimeSeconds": 12.4

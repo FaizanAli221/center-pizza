@@ -11,15 +11,15 @@ export default function Footer() {
           <div>
             <div className="flex items-center gap-2 mb-4">
               <div className="bg-[#E31B23] text-white p-2 rounded-2xl flex flex-col items-center justify-center w-10 h-10">
-                <span className="font-black text-xs leading-none">CALI</span>
+                <span className="font-black text-[9px] leading-none">CENTER</span>
                 <span className="text-[7px] font-bold text-amber-300">PIZZA</span>
               </div>
               <span className="font-black text-xl tracking-tight text-white">
-                California <span className="text-[#2D7A38]">PIZZA</span>
+                Center <span className="text-[#2D7A38]">PIZZA</span>
               </span>
             </div>
             <p className="text-gray-400 text-xs leading-relaxed mb-4">
-              United By Flavour. Baking hot, cheesy, and flavourful pizzas across Pakistan with fresh dough made daily and signature Pakistani spices.
+              Center Pizza. Baking hot, cheesy, and flavourful pizzas across Pakistan with fresh dough made daily and signature Pakistani spices.
             </p>
             <div className="flex items-center gap-3 text-gray-400">
               <a
@@ -87,7 +87,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link to="/about" className="hover:text-white transition-colors">
-                  About California Pizza
+                  About Center Pizza
                 </Link>
               </li>
             </ul>
@@ -119,8 +119,8 @@ export default function Footer() {
               <div className="flex items-start gap-2.5">
                 <Phone size={16} className="text-[#E31B23] shrink-0 mt-0.5" />
                 <div>
-                  <span className="block text-white font-bold text-sm">021-111-753-753</span>
-                  <span className="text-[11px] text-gray-500">Universal Access Number</span>
+                  <a href="tel:021111236837" className="block text-white font-bold text-sm hover:text-amber-300 transition-colors">021-111-236-837</a>
+                  <span className="text-[11px] text-gray-500">Universal Access Number (UAN)</span>
                 </div>
               </div>
 
@@ -131,14 +131,15 @@ export default function Footer() {
 
               <div className="flex items-start gap-2.5">
                 <Mail size={16} className="text-amber-400 shrink-0 mt-0.5" />
-                <span>info@californiapizza.com.pk</span>
+                <a href="mailto:info@centerpizza.com.pk" className="hover:underline">info@centerpizza.com.pk</a>
               </div>
             </div>
           </div>
         </div>
 
         <div className="border-t border-gray-800 pt-6 flex flex-col sm:flex-row items-center justify-between text-xs text-gray-500 gap-3">
-          <p>© {new Date().getFullYear()} California Pizza Pakistan. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} Center Pizza Pakistan. All rights reserved.</p>
+
           <p className="flex items-center gap-1">
             Made with <Heart size={12} className="text-[#E31B23] fill-[#E31B23]" /> for Pizza Lovers
           </p>

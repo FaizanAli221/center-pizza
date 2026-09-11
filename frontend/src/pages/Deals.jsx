@@ -63,7 +63,7 @@ export default function Deals({ menuItems, onAddToCart }) {
             <Sparkles size={13} /> Unbeatable Value Deals
           </span>
           <h1 className="text-3xl sm:text-5xl font-black leading-tight tracking-tight">
-            California Deals & Combo Bundles
+            Center Pizza Deals & Combo Bundles
           </h1>
           <p className="text-white/80 text-xs sm:text-sm mt-3">
             Save up to 40% with our specially curated bundles featuring multiple pizzas, starters, and drinks.

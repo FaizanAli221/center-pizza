@@ -31,27 +31,28 @@ const DEFAULT_CITIES = [
     id: 'khi',
     name: 'Karachi',
     branches: [
-      { id: 'khi-clifton', name: 'Clifton Block 4', deliveryEtaMinutes: 35 },
-      { id: 'khi-gulshan', name: 'Gulshan-e-Iqbal Block 13', deliveryEtaMinutes: 40 },
-      { id: 'khi-dha', name: 'DHA Phase 5 Badar Commercial', deliveryEtaMinutes: 30 },
+      { id: 'khi-clifton', name: 'Clifton Block 4', phone: '021-35874221', deliveryEtaMinutes: 35 },
+      { id: 'khi-gulshan', name: 'Gulshan-e-Iqbal Block 13', phone: '021-34981122', deliveryEtaMinutes: 40 },
+      { id: 'khi-dha', name: 'DHA Phase 5 Badar Commercial', phone: '021-35345566', deliveryEtaMinutes: 30 },
     ],
   },
   {
     id: 'lhr',
     name: 'Lahore',
     branches: [
-      { id: 'lhr-gulberg', name: 'Gulberg III Main Boulevard', deliveryEtaMinutes: 35 },
-      { id: 'lhr-johar', name: 'Johar Town G-1 Market', deliveryEtaMinutes: 40 },
+      { id: 'lhr-gulberg', name: 'Gulberg III Main Boulevard', phone: '042-35756611', deliveryEtaMinutes: 35 },
+      { id: 'lhr-johar', name: 'Johar Town G-1 Market', phone: '042-35312344', deliveryEtaMinutes: 40 },
     ],
   },
   {
     id: 'isb',
     name: 'Islamabad',
     branches: [
-      { id: 'isb-f7', name: 'F-7 Markaz Jinnah Super', deliveryEtaMinutes: 35 },
+      { id: 'isb-f7', name: 'F-7 Markaz Jinnah Super', phone: '051-2651122', deliveryEtaMinutes: 35 },
     ],
   },
 ];
+
 
 const money = (n) => `RS. ${Number(n || 0).toLocaleString('en-PK')}`;
 
@@ -93,11 +94,12 @@ function LocationModal({
           </button>
           <div className="bg-white rounded-2xl px-5 py-2 shadow-lg text-center">
             <span className="font-black text-lg tracking-tight">
-              <span className="text-[#E31B23]">California</span>
+              <span className="text-[#E31B23]">Center</span>
               <br />
               <span className="text-[#2D7A38] -mt-1 block text-sm">PIZZA</span>
             </span>
           </div>
+
         </div>
 
         <div className="p-6 space-y-4">
@@ -535,8 +537,9 @@ function OrderSuccessModal({ order, onClose }) {
 
         <h3 className="text-xl font-black text-gray-900">Order Confirmed!</h3>
         <p className="text-xs text-gray-500">
-          Thank you for choosing California Pizza. Your meal is being prepared hot and fresh.
+          Thank you for choosing Center Pizza. Your meal is being prepared hot and fresh.
         </p>
+
 
         <div className="p-4 bg-gray-50 rounded-2xl border border-gray-200 text-left space-y-2 text-xs">
           <div className="flex justify-between items-center pb-2 border-b border-gray-200">
@@ -688,10 +691,10 @@ export default function App() {
           onOpenLocation={() => setLocationOpen(true)}
           cartCount={cartCount}
           onOpenCart={() => setCartOpen(true)}
-          apiOnline={apiOnline}
           orderType={orderType}
           setOrderType={setOrderType}
         />
+
 
         {/* Main Body with Routes */}
         <main className="flex-1">

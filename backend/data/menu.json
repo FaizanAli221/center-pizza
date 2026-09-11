@@ -327,7 +327,7 @@
     },
     {
       "id": "sr-003",
-      "name": "The Cali Special Spin Roll",
+      "name": "The Center Special Spin Roll",
       "category": "Stuffed Pizza Rolls",
       "price": 549,
       "description": "Creamy chaska sauce with tikka meat, malai boti, capsicum, and herbs.",
@@ -412,11 +412,11 @@
       "name": "Karachi",
       "icon": "fort",
       "branches": [
-        { "id": "khi-clifton", "name": "Clifton Block 4", "address": "Plot 12, Block 4, Clifton, Karachi", "phone": "021-111-753-753", "deliveryEtaMinutes": 35, "dineIn": true, "takeaway": true },
-        { "id": "khi-gulshan", "name": "Gulshan-e-Iqbal Block 13", "address": "Main Rashid Minhas Road, Gulshan, Karachi", "phone": "021-111-753-753", "deliveryEtaMinutes": 40, "dineIn": true, "takeaway": true },
-        { "id": "khi-dha", "name": "DHA Phase 5 Badar Commercial", "address": "26th Street, Badar Commercial, DHA Phase 5, Karachi", "phone": "021-111-753-753", "deliveryEtaMinutes": 30, "dineIn": true, "takeaway": true },
-        { "id": "khi-north", "name": "North Nazimabad Block H", "address": "Hydri Market, North Nazimabad, Karachi", "phone": "021-111-753-753", "deliveryEtaMinutes": 45, "dineIn": false, "takeaway": true },
-        { "id": "khi-tariq", "name": "Tariq Road PECHS", "address": "Opposite Dolmen Mall, Tariq Road, Karachi", "phone": "021-111-753-753", "deliveryEtaMinutes": 35, "dineIn": true, "takeaway": true }
+        { "id": "khi-clifton", "name": "Clifton Block 4", "address": "Plot 12, Block 4, Clifton, Karachi", "phone": "021-35874221", "deliveryEtaMinutes": 35, "dineIn": true, "takeaway": true },
+        { "id": "khi-gulshan", "name": "Gulshan-e-Iqbal Block 13", "address": "Main Rashid Minhas Road, Gulshan, Karachi", "phone": "021-34981122", "deliveryEtaMinutes": 40, "dineIn": true, "takeaway": true },
+        { "id": "khi-dha", "name": "DHA Phase 5 Badar Commercial", "address": "26th Street, Badar Commercial, DHA Phase 5, Karachi", "phone": "021-35345566", "deliveryEtaMinutes": 30, "dineIn": true, "takeaway": true },
+        { "id": "khi-north", "name": "North Nazimabad Block H", "address": "Hydri Market, North Nazimabad, Karachi", "phone": "021-36631244", "deliveryEtaMinutes": 45, "dineIn": false, "takeaway": true },
+        { "id": "khi-tariq", "name": "Tariq Road PECHS", "address": "Opposite Dolmen Mall, Tariq Road, Karachi", "phone": "021-34557890", "deliveryEtaMinutes": 35, "dineIn": true, "takeaway": true }
       ]
     },
     {
@@ -424,10 +424,10 @@
       "name": "Lahore",
       "icon": "minar",
       "branches": [
-        { "id": "lhr-gulberg", "name": "Gulberg III Main Boulevard", "address": "Main Boulevard Gulberg III, Lahore", "phone": "042-111-753-753", "deliveryEtaMinutes": 35, "dineIn": true, "takeaway": true },
-        { "id": "lhr-johar", "name": "Johar Town G-1 Market", "address": "Near Shaukat Khanum, Johar Town, Lahore", "phone": "042-111-753-753", "deliveryEtaMinutes": 40, "dineIn": true, "takeaway": true },
-        { "id": "lhr-dha", "name": "DHA Phase 6 Commercial Broadway", "address": "Main Broadway, DHA Phase 6, Lahore", "phone": "042-111-753-753", "deliveryEtaMinutes": 30, "dineIn": true, "takeaway": true },
-        { "id": "lhr-mall", "name": "Mall Road", "address": "Near Anarkali, Mall Road, Lahore", "phone": "042-111-753-753", "deliveryEtaMinutes": 35, "dineIn": true, "takeaway": true }
+        { "id": "lhr-gulberg", "name": "Gulberg III Main Boulevard", "address": "Main Boulevard Gulberg III, Lahore", "phone": "042-35756611", "deliveryEtaMinutes": 35, "dineIn": true, "takeaway": true },
+        { "id": "lhr-johar", "name": "Johar Town G-1 Market", "address": "Near Shaukat Khanum, Johar Town, Lahore", "phone": "042-35312344", "deliveryEtaMinutes": 40, "dineIn": true, "takeaway": true },
+        { "id": "lhr-dha", "name": "DHA Phase 6 Commercial Broadway", "address": "Main Broadway, DHA Phase 6, Lahore", "phone": "042-35728899", "deliveryEtaMinutes": 30, "dineIn": true, "takeaway": true },
+        { "id": "lhr-mall", "name": "Mall Road", "address": "Near Anarkali, Mall Road, Lahore", "phone": "042-37351122", "deliveryEtaMinutes": 35, "dineIn": true, "takeaway": true }
       ]
     },
     {
@@ -435,9 +435,9 @@
       "name": "Islamabad",
       "icon": "building",
       "branches": [
-        { "id": "isb-f7", "name": "F-7 Markaz Jinnah Super", "address": "Jinnah Super Market, F-7, Islamabad", "phone": "051-111-753-753", "deliveryEtaMinutes": 35, "dineIn": true, "takeaway": true },
-        { "id": "isb-g11", "name": "G-11 Markaz", "address": "G-11 Markaz Plaza, Islamabad", "phone": "051-111-753-753", "deliveryEtaMinutes": 40, "dineIn": true, "takeaway": true },
-        { "id": "isb-bahria", "name": "Bahria Town Phase 4", "address": "Civic Center, Bahria Town Phase 4, Islamabad", "phone": "051-111-753-753", "deliveryEtaMinutes": 45, "dineIn": true, "takeaway": true }
+        { "id": "isb-f7", "name": "F-7 Markaz Jinnah Super", "address": "Jinnah Super Market, F-7, Islamabad", "phone": "051-2651122", "deliveryEtaMinutes": 35, "dineIn": true, "takeaway": true },
+        { "id": "isb-g11", "name": "G-11 Markaz", "address": "G-11 Markaz Plaza, Islamabad", "phone": "051-2834455", "deliveryEtaMinutes": 40, "dineIn": true, "takeaway": true },
+        { "id": "isb-bahria", "name": "Bahria Town Phase 4", "address": "Civic Center, Bahria Town Phase 4, Islamabad", "phone": "051-5730011", "deliveryEtaMinutes": 45, "dineIn": true, "takeaway": true }
       ]
     },
     {
@@ -445,8 +445,8 @@
       "name": "Hyderabad",
       "icon": "clock",
       "branches": [
-        { "id": "hyd-latifabad", "name": "Latifabad Unit 7", "address": "Near Chandni Cinema, Latifabad Unit 7, Hyderabad", "phone": "022-111-753-753", "deliveryEtaMinutes": 40, "dineIn": true, "takeaway": true },
-        { "id": "hyd-auto", "name": "Auto Bhan Road", "address": "Main Auto Bhan Road, Latifabad, Hyderabad", "phone": "022-111-753-753", "deliveryEtaMinutes": 35, "dineIn": true, "takeaway": true }
+        { "id": "hyd-latifabad", "name": "Latifabad Unit 7", "address": "Near Chandni Cinema, Latifabad Unit 7, Hyderabad", "phone": "022-3861234", "deliveryEtaMinutes": 40, "dineIn": true, "takeaway": true },
+        { "id": "hyd-auto", "name": "Auto Bhan Road", "address": "Main Auto Bhan Road, Latifabad, Hyderabad", "phone": "022-3814455", "deliveryEtaMinutes": 35, "dineIn": true, "takeaway": true }
       ]
     },
     {
@@ -454,7 +454,7 @@
       "name": "Gujranwala",
       "icon": "castle",
       "branches": [
-        { "id": "guj-model-town", "name": "Model Town Main Market", "address": "Main Market, Model Town, Gujranwala", "phone": "055-111-753-753", "deliveryEtaMinutes": 40, "dineIn": true, "takeaway": true }
+        { "id": "guj-model-town", "name": "Model Town Main Market", "address": "Main Market, Model Town, Gujranwala", "phone": "055-3841122", "deliveryEtaMinutes": 40, "dineIn": true, "takeaway": true }
       ]
     },
     {
@@ -462,7 +462,7 @@
       "name": "Faisalabad",
       "icon": "tower",
       "branches": [
-        { "id": "fsd-d-ground", "name": "D-Ground Peoples Colony", "address": "D-Ground Commercial Area, Peoples Colony No. 1, Faisalabad", "phone": "041-111-753-753", "deliveryEtaMinutes": 40, "dineIn": true, "takeaway": true }
+        { "id": "fsd-d-ground", "name": "D-Ground Peoples Colony", "address": "D-Ground Commercial Area, Peoples Colony No. 1, Faisalabad", "phone": "041-8541233", "deliveryEtaMinutes": 40, "dineIn": true, "takeaway": true }
       ]
     },
     {
@@ -470,7 +470,7 @@
       "name": "Sargodha",
       "icon": "mosque",
       "branches": [
-        { "id": "sgd-university-road", "name": "University Road", "address": "Near University of Sargodha, University Road, Sargodha", "phone": "048-111-753-753", "deliveryEtaMinutes": 45, "dineIn": true, "takeaway": true }
+        { "id": "sgd-university-road", "name": "University Road", "address": "Near University of Sargodha, University Road, Sargodha", "phone": "048-3721100", "deliveryEtaMinutes": 45, "dineIn": true, "takeaway": true }
       ]
     },
     {
@@ -478,7 +478,7 @@
       "name": "Quetta",
       "icon": "building",
       "branches": [
-        { "id": "uet-jinnah-road", "name": "Jinnah Road Commercial", "address": "Main Jinnah Road, Quetta", "phone": "081-111-753-753", "deliveryEtaMinutes": 45, "dineIn": true, "takeaway": true }
+        { "id": "uet-jinnah-road", "name": "Jinnah Road Commercial", "address": "Main Jinnah Road, Quetta", "phone": "081-2821144", "deliveryEtaMinutes": 45, "dineIn": true, "takeaway": true }
       ]
     },
     {
@@ -486,7 +486,7 @@
       "name": "Mandi Bahauddin",
       "icon": "arch",
       "branches": [
-        { "id": "mbd-main-bazar", "name": "Main Bazar Saddar", "address": "Saddar Bazar, Mandi Bahauddin", "phone": "0546-111-753-753", "deliveryEtaMinutes": 45, "dineIn": true, "takeaway": true }
+        { "id": "mbd-main-bazar", "name": "Main Bazar Saddar", "address": "Saddar Bazar, Mandi Bahauddin", "phone": "0546-501122", "deliveryEtaMinutes": 45, "dineIn": true, "takeaway": true }
       ]
     }
   ]

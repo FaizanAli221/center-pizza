@@ -1,6 +1,6 @@
-# California Pizza - Fullstack Web Application
+# Center Pizza - Fullstack Web Application
 
-A modern full-stack web ordering system for California Pizza featuring a responsive React frontend powered by Vite and Tailwind CSS, coupled with an Express.js REST API backend.
+A modern full-stack web ordering system for Center Pizza featuring a responsive React frontend powered by Vite and Tailwind CSS, coupled with an Express.js REST API backend.
 
 ## Architecture
 
