@@ -4,6 +4,7 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import MobileNav from './components/MobileNav';
 import ItemCustomizeModal from './components/ItemCustomizeModal';
+import FloatingActions from './components/FloatingActions';
 import Home from './pages/Home';
 import Menu from './pages/Menu';
 import Deals from './pages/Deals';
@@ -707,6 +708,7 @@ export default function App() {
                   onAddToCart={addToCart}
                   onOpenCustomize={(it) => setCustomizingItem(it)}
                   city={selectedCity}
+                  branch={selectedBranch}
                   onOpenLocation={() => setLocationOpen(true)}
                 />
               }
@@ -718,6 +720,9 @@ export default function App() {
                   menuItems={menuItems}
                   onAddToCart={addToCart}
                   onOpenCustomize={(it) => setCustomizingItem(it)}
+                  city={selectedCity}
+                  branch={selectedBranch}
+                  onOpenLocation={() => setLocationOpen(true)}
                 />
               }
             />
@@ -798,6 +803,9 @@ export default function App() {
 
         {/* Mobile Navigation Bar */}
         <MobileNav cartCount={cartCount} onOpenCart={() => setCartOpen(true)} />
+
+        {/* Global Floating Actions (Search, WhatsApp, Scroll to Top) */}
+        <FloatingActions />
 
         {/* Footer */}
         <Footer />

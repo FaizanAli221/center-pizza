@@ -14,6 +14,9 @@ import {
   CheckCircle2,
   Percent
 } from 'lucide-react';
+import PopularDealsSection from '../components/PopularDealsSection';
+import HeritagePizzaCard from '../components/HeritagePizzaCard';
+import DealsFilterBar from '../components/DealsFilterBar';
 
 function PizzaArt({ tone = 'classic', className = '' }) {
   const crust =
@@ -37,7 +40,16 @@ function PizzaArt({ tone = 'classic', className = '' }) {
   );
 }
 
-export default function Home({ menuItems, onAddToCart, onOpenCustomize, city, onOpenLocation }) {
+export default function Home({
+  menuItems = [],
+  onAddToCart,
+  onOpenCustomize,
+  city,
+  branch,
+  onOpenLocation
+}) {
+  const [activeFilter, setActiveFilter] = useState('all');
+
   const slides = [
     {
       title: 'United By Flavour',
@@ -48,6 +60,14 @@ export default function Home({ menuItems, onAddToCart, onOpenCustomize, city, on
       bg: 'linear-gradient(135deg, #1f4a24, #2D7A38)',
     },
     {
+      title: 'Midnight Deals',
+      sub: '1 Large Pizza 12" at RS. 1333 (Starting 11:30 PM)',
+      tag: 'MIDNIGHT SPECIAL',
+      cta: 'Order Midnight Deal',
+      link: '/deals',
+      bg: 'linear-gradient(135deg, #0b1120, #1e293b)',
+    },
+    {
       title: 'Triple The Madness',
       sub: '3 Pizzas Loaded With Extra Cheese & Fresh Toppings',
       tag: 'MEGA DEAL',
@@ -55,29 +75,50 @@ export default function Home({ menuItems, onAddToCart, onOpenCustomize, city, on
       link: '/deals',
       bg: 'linear-gradient(135deg, #c9181f, #E31B23)',
     },
-    {
-      title: 'Mighty Family Platters',
-      sub: 'Pizzas, Garlic Breads & 1.5L Drink For The Whole Gang',
-      tag: 'FAMILY BUNDLE',
-      cta: 'Order Platter',
-      link: '/deals',
-      bg: 'linear-gradient(135deg, #b96a1a, #d98a28)',
-    },
   ];
 
   const [slideIdx, setSlideIdx] = useState(0);
   const nextSlide = () => setSlideIdx((i) => (i + 1) % slides.length);
   const prevSlide = () => setSlideIdx((i) => (i - 1 + slides.length) % slides.length);
 
-  const popularItems = menuItems.filter((i) => i.isPopular).slice(0, 6);
-  const traditionalItems = menuItems.filter((i) => i.category === 'Traditional Pizzas').slice(0, 4);
+  // Extract deals and traditional items
+  const deals = menuItems.filter((i) => i.category === 'Pizza Deals');
+  
+  // Specific 4 heritage items matching Screenshot 2
+  const heritageFlavors = ['SINDHI ACHARI', 'KHYBER GREEN BOTI', 'BALOCHI TIKKA', 'PUNJABI SMOKEY SEEKH'];
+  const traditionalItems = menuItems.filter((i) => {
+    return heritageFlavors.some(hf => i.name.toUpperCase().includes(hf));
+  });
+
+  // Filtered deals for specific pills
+  const filteredDeals = menuItems.filter((item) => {
+    if (activeFilter === 'mighty-family') {
+      return item.name.toLowerCase().includes('family') || item.name.toLowerCase().includes('mighty');
+    }
+    if (activeFilter === 'triple-madness') {
+      return item.name.toLowerCase().includes('triple');
+    }
+    if (activeFilter === 'double-fun') {
+      return item.name.toLowerCase().includes('double');
+    }
+    return false;
+  });
 
   return (
-    <div className="space-y-10 sm:space-y-14 pb-12">
+    <div className="space-y-8 sm:space-y-12 pb-12">
+      {/* Top Filter Bar with 'Select area' & Category Pills Matching Screenshot 2 */}
+      <DealsFilterBar
+        selectedCity={city}
+        selectedBranch={branch}
+        onOpenLocation={onOpenLocation}
+        activeFilter={activeFilter}
+        onSelectFilter={setActiveFilter}
+      />
+
       {/* Hero Carousel Banner */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4 sm:pt-6">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div
-          className="relative rounded-3xl overflow-hidden shadow-xl min-h-[340px] sm:min-h-[420px] flex items-center justify-between px-6 sm:px-12 transition-all"
+          className="relative rounded-3xl overflow-hidden shadow-xl min-h-[320px] sm:min-h-[400px] flex items-center justify-between px-6 sm:px-12 transition-all"
           style={{ background: slides[slideIdx].bg }}
         >
           <PizzaArt tone="classic" className="absolute -left-12 -top-12 w-48 h-48 opacity-40 blur-xs" />
@@ -108,7 +149,7 @@ export default function Home({ menuItems, onAddToCart, onOpenCustomize, city, on
                 className="bg-black/30 hover:bg-black/40 text-white font-bold px-4 py-3 rounded-full backdrop-blur-md text-xs sm:text-sm flex items-center gap-1.5 transition-colors"
               >
                 <MapPin size={14} className="text-amber-300" />
-                <span>Deliver to: {city}</span>
+                <span>Deliver to: {branch?.name || city}</span>
               </button>
             </div>
           </div>
@@ -152,6 +193,98 @@ export default function Home({ menuItems, onAddToCart, onOpenCustomize, city, on
         </div>
       </section>
 
+      {/* Pill Specific Deals Section when user filters by Mighty Family / Triple Madness / Double Fun */}
+      {filteredDeals.length > 0 && activeFilter !== 'all' && (
+        <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between mb-4">
+            <h2 className="text-xl sm:text-2xl font-black text-gray-900 uppercase">
+              {activeFilter.replace('-', ' ')}
+            </h2>
+            <button
+              onClick={() => setActiveFilter('all')}
+              className="text-xs font-bold text-[#E31B23] hover:underline"
+            >
+              Show All Menu
+            </button>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {filteredDeals.map((deal) => (
+              <div
+                key={deal.id}
+                className="bg-white rounded-3xl border border-gray-200 p-5 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between"
+              >
+                <div>
+                  <span className="bg-[#E31B23] text-white text-[10px] font-black px-2.5 py-1 rounded-full uppercase">
+                    {deal.ribbon || 'VALUE DEAL'}
+                  </span>
+                  <h3 className="text-lg font-black text-gray-900 mt-2">{deal.name}</h3>
+                  <p className="text-xs text-gray-500 mt-1 leading-relaxed">{deal.description}</p>
+                </div>
+                <div className="mt-4 pt-3 border-t border-gray-100 flex items-center justify-between">
+                  <span className="text-lg font-black text-[#2D7A38]">
+                    RS. {deal.price.toLocaleString('en-PK')}
+                  </span>
+                  <button
+                    onClick={() => onAddToCart(deal)}
+                    type="button"
+                    className="bg-[#E31B23] hover:bg-[#c9181f] text-white text-xs font-black px-4 py-2 rounded-full shadow-xs flex items-center gap-1.5 transition-transform active:scale-95"
+                  >
+                    <Plus size={15} /> Add Deal
+                  </button>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
+
+      {/* SCREENSHOT 1: POPULAR ITEMS (MOST ORDERED RIGHT NOW) */}
+      {(activeFilter === 'all' || activeFilter === 'double-fun') && (
+        <PopularDealsSection
+          deals={deals}
+          onAddToCart={onAddToCart}
+          onOpenCustomize={onOpenCustomize}
+        />
+      )}
+
+      {/* SCREENSHOT 2: PAKISTANI HERITAGE 4-FLAVOUR SPOTLIGHT */}
+      {(activeFilter === 'all' || activeFilter === 'traditional') && (
+        <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-6 gap-2">
+            <div>
+              <span className="text-xs font-black tracking-widest text-[#2D7A38] uppercase">
+                United By Flavour
+              </span>
+              <h2 className="text-2xl sm:text-4xl font-black text-gray-900 tracking-tight mt-0.5">
+                Authentic Pakistani Heritage Menu
+              </h2>
+              <p className="text-xs sm:text-sm text-gray-500 mt-1">
+                Regional recipes inspired by Sindh, Balochistan, Khyber, and Punjab.
+              </p>
+            </div>
+            <Link
+              to="/menu?category=Traditional%20Pizzas"
+              className="text-xs font-extrabold text-[#E31B23] hover:underline flex items-center gap-1 shrink-0"
+            >
+              <span>Explore All Traditional</span>
+              <ArrowRight size={14} />
+            </Link>
+          </div>
+
+          {/* 4 Cultural Cards Grid Matching Screenshot 2 */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {traditionalItems.map((item) => (
+              <HeritagePizzaCard
+                key={item.id}
+                item={item}
+                onAddToCart={onAddToCart}
+                onOpenCustomize={onOpenCustomize}
+              />
+            ))}
+          </div>
+        </section>
+      )}
+
       {/* Quick Category Icons */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
@@ -175,155 +308,21 @@ export default function Home({ menuItems, onAddToCart, onOpenCustomize, city, on
         </div>
       </section>
 
-      {/* Popular Items Showcase */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between mb-6">
-          <div>
-            <div className="flex items-center gap-2">
-              <Flame size={22} className="text-[#E31B23]" fill="#E31B23" />
-              <h2 className="text-xl sm:text-2xl font-black text-gray-900">Most Popular Items</h2>
-            </div>
-            <p className="text-xs text-gray-500 font-medium mt-0.5">
-              Loved by pizza enthusiasts across Pakistan
-            </p>
-          </div>
-          <Link
-            to="/menu"
-            className="text-xs font-bold text-[#E31B23] hover:underline flex items-center gap-1"
-          >
-            <span>View Full Menu</span>
-            <ArrowRight size={14} />
-          </Link>
-        </div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-          {popularItems.map((item) => (
-            <div
-              key={item.id}
-              className="bg-white rounded-2xl border border-gray-200 overflow-hidden hover:shadow-md transition-shadow flex flex-col justify-between"
-            >
-              <div className="relative p-5 bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center min-h-[140px]">
-                {item.tag && (
-                  <span className="absolute top-3 left-3 bg-[#1A1A1A] text-white text-[9px] font-black px-2 py-0.5 rounded-full">
-                    {item.tag.replace('\n', ' ')}
-                  </span>
-                )}
-                {item.ribbon && (
-                  <span className="absolute top-3 right-3 bg-[#E31B23] text-white text-[9px] font-black px-2 py-0.5 rounded-full">
-                    {item.ribbon}
-                  </span>
-                )}
-                <PizzaArt tone={item.id.includes('fl') ? 'classic' : 'pepperoni'} className="w-24 h-24 shadow-sm" />
-              </div>
-
-              <div className="p-4 flex flex-col flex-1">
-                <span className="text-[10px] font-bold text-[#2D7A38] uppercase">
-                  {item.category}
-                </span>
-                <h3 className="font-extrabold text-sm sm:text-base text-gray-900 leading-tight mt-0.5">
-                  {item.name}
-                </h3>
-                {item.description && (
-                  <p className="text-xs text-gray-500 mt-1 line-clamp-2">{item.description}</p>
-                )}
-
-                <div className="mt-4 pt-3 border-t border-gray-100 flex items-center justify-between">
-                  <div>
-                    <span className="text-[10px] text-gray-400 block font-semibold">Starting From</span>
-                    <span className="text-base font-black text-[#2D7A38]">
-                      RS. {item.price.toLocaleString('en-PK')}
-                    </span>
-                  </div>
-
-                  {item.hasCustomization ? (
-                    <button
-                      onClick={() => onOpenCustomize(item)}
-                      type="button"
-                      className="bg-[#2D7A38] hover:bg-[#23632c] text-white text-xs font-black px-4 py-2 rounded-full shadow-xs transition-colors"
-                    >
-                      Customize
-                    </button>
-                  ) : (
-                    <button
-                      onClick={() => onAddToCart(item)}
-                      type="button"
-                      className="bg-[#E31B23] hover:bg-[#c9181f] text-white text-xs font-black px-4 py-2 rounded-full shadow-xs transition-colors flex items-center gap-1"
-                    >
-                      <Plus size={14} /> Add
-                    </button>
-                  )}
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* Traditional Pakistani Flavour Spotlight */}
-      <section className="bg-gradient-to-br from-[#1f4a24] to-[#2D7A38] text-white py-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-2xl mx-auto mb-8">
-            <span className="text-xs font-black tracking-widest text-amber-300 uppercase">
-              Authentic Fusion
-            </span>
-            <h2 className="text-2xl sm:text-4xl font-black mt-1 tracking-tight">
-              United By Fl<span className="text-amber-400">4</span>vour
-            </h2>
-            <p className="text-xs sm:text-sm text-white/80 mt-2">
-              Our tribute to regional Pakistani taste — Sindhi Achari, Balochi Tikka, Khyber Boti & Punjabi Smokey Seekh.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            {traditionalItems.map((p) => (
-              <div
-                key={p.id}
-                className="bg-white/10 backdrop-blur-md rounded-2xl border border-white/20 p-4 flex flex-col justify-between hover:bg-white/15 transition-colors"
-              >
-                <div>
-                  <div className="flex items-center justify-between mb-2">
-                    <span className="text-amber-300 font-extrabold text-sm">{p.urdu}</span>
-                    <span className="bg-black/30 text-white text-[10px] font-bold px-2 py-0.5 rounded-full">
-                      Signature
-                    </span>
-                  </div>
-                  <h3 className="font-black text-base text-white">{p.name}</h3>
-                  <p className="text-xs text-white/70 mt-1 line-clamp-2">{p.description}</p>
-                </div>
-
-                <div className="mt-4 pt-3 border-t border-white/15 flex items-center justify-between">
-                  <span className="font-black text-amber-300 text-sm">
-                    RS. {p.price.toLocaleString('en-PK')}
-                  </span>
-                  <button
-                    onClick={() => onOpenCustomize(p)}
-                    type="button"
-                    className="bg-white hover:bg-amber-50 text-gray-950 font-black text-xs px-3.5 py-1.5 rounded-full transition-transform active:scale-95"
-                  >
-                    Select Size
-                  </button>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Why Center Pizza Features */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div className="bg-white p-6 rounded-2xl border border-gray-200 text-center flex flex-col items-center">
-            <div className="w-12 h-12 rounded-full bg-red-100 text-[#E31B23] flex items-center justify-center mb-3">
+          <div className="bg-white p-6 rounded-3xl border border-gray-200 text-center flex flex-col items-center shadow-xs">
+            <div className="w-12 h-12 rounded-2xl bg-red-100 text-[#E31B23] flex items-center justify-center mb-3">
               <Sparkles size={24} />
             </div>
             <h3 className="font-extrabold text-base text-gray-900">Fresh Dough Made Daily</h3>
             <p className="text-xs text-gray-500 mt-1 leading-relaxed">
-              Every crust is kneaded fresh every morning using wholesome wheat flour and secret herb seasoning.
+              Every crust is hand-stretched and kneaded fresh every morning using wholesome wheat flour.
             </p>
           </div>
 
-          <div className="bg-white p-6 rounded-2xl border border-gray-200 text-center flex flex-col items-center">
-            <div className="w-12 h-12 rounded-full bg-green-100 text-[#2D7A38] flex items-center justify-center mb-3">
+          <div className="bg-white p-6 rounded-3xl border border-gray-200 text-center flex flex-col items-center shadow-xs">
+            <div className="w-12 h-12 rounded-2xl bg-green-100 text-[#2D7A38] flex items-center justify-center mb-3">
               <ShieldCheck size={24} />
             </div>
             <h3 className="font-extrabold text-base text-gray-900">100% Real Mozzarella</h3>
@@ -332,8 +331,8 @@ export default function Home({ menuItems, onAddToCart, onOpenCustomize, city, on
             </p>
           </div>
 
-          <div className="bg-white p-6 rounded-2xl border border-gray-200 text-center flex flex-col items-center">
-            <div className="w-12 h-12 rounded-full bg-amber-100 text-amber-700 flex items-center justify-center mb-3">
+          <div className="bg-white p-6 rounded-3xl border border-gray-200 text-center flex flex-col items-center shadow-xs">
+            <div className="w-12 h-12 rounded-2xl bg-amber-100 text-amber-700 flex items-center justify-center mb-3">
               <Clock size={24} />
             </div>
             <h3 className="font-extrabold text-base text-gray-900">Hot & Fresh in ~35 Mins</h3>
@@ -355,7 +354,7 @@ export default function Home({ menuItems, onAddToCart, onOpenCustomize, city, on
               Craving Pizza Deals With Unmatched Value?
             </h2>
             <p className="text-white/80 text-xs sm:text-sm mt-2">
-              Browse our family platters, roll combos, and double-the-fun deals available exclusively online.
+              Browse our midnight deals, family platters, and double-the-fun combos available exclusively online.
             </p>
           </div>
 
