@@ -1,13 +1,13 @@
 {
   "categories": [
     { "id": "pizza-deals", "name": "Pizza Deals" },
-    { "id": "summer-deals", "name": "Summer Deals" },
-    { "id": "flavours", "name": "Flavours" },
-    { "id": "mighty-platters", "name": "Mighty Family Platter" },
-    { "id": "triple-madness", "name": "Triple The Madness" },
-    { "id": "stuffed-pizza-rolls", "name": "Stuffed Pizza Roll" },
-    { "id": "snackin-combo", "name": "Snackin Combo" },
-    { "id": "drinks", "name": "Drinks" }
+    { "id": "special-pizzas", "name": "Specialty Pizzas" },
+    { "id": "traditional-pizzas", "name": "Traditional Pizzas" },
+    { "id": "starters", "name": "Starters & Appetizers" },
+    { "id": "stuffed-rolls", "name": "Stuffed Pizza Rolls" },
+    { "id": "pastas-sandwiches", "name": "Pastas & Sandwiches" },
+    { "id": "desserts", "name": "Desserts" },
+    { "id": "drinks", "name": "Drinks & Beverages" }
   ],
   "items": [
     {
@@ -15,323 +15,394 @@
       "name": "Double The Fun",
       "category": "Pizza Deals",
       "price": 2099,
-      "description": "2 medium pizzas of your choice, perfect for sharing.",
+      "description": "2 medium pizzas of your choice, loaded with gooey cheese and premium toppings.",
       "image": "/images/double-the-fun.jpg",
       "isPopular": true,
       "tag": "DOUBLE\nTHE FUN",
-      "sub": "2 MEDIUM PIZZA",
-      "hue": "from-[#f3f0c4] to-[#dfe9c4]",
-      "dark": false
+      "sub": "2 MEDIUM PIZZAS",
+      "hue": "from-[#f3f0c4] to-[#dfe9c4]"
     },
     {
       "id": "pd-002",
       "name": "Share Box 2",
       "category": "Pizza Deals",
       "price": 1699,
-      "description": "2 pcs garlic bread, spin roll, and 2 soft drinks.",
+      "description": "2 pcs garlic bread, 1 spin roll, and 2 chilled 345ml soft drinks.",
       "image": "/images/share-box-2.jpg",
       "isPopular": true,
-      "tag": "SHARE THE\nLOVE CHEESY WAY",
+      "tag": "SHARE THE\nLOVE",
       "sub": "SHARE BOX 2",
       "hue": "from-[#1f4a24] to-[#2D7A38]",
       "dark": true
     },
     {
       "id": "pd-003",
-      "name": "Combo Deal 02",
+      "name": "Triple The Madness - Small",
       "category": "Pizza Deals",
-      "price": 1099,
-      "description": "Two pizza roll any flavor with 2 small drink 350ml.",
-      "image": "/images/combo-deal-02.jpg",
-      "isPopular": true,
-      "tag": "STUFFED\nPIZZA ROLL",
-      "sub": "COMBO DEAL 02",
-      "hue": "from-[#c88a3a] to-[#e0ab5c]",
-      "dark": false
+      "price": 1449,
+      "description": "Triple the madness with 3 personal small pizzas in your favourite flavors.",
+      "image": "/images/triple-madness-small.jpg",
+      "isPopular": false,
+      "tag": "3 SMALL",
+      "sub": "MADNESS TRIPLE"
     },
     {
       "id": "pd-004",
-      "name": "Summer Surprise",
+      "name": "Triple The Madness - Medium",
       "category": "Pizza Deals",
-      "price": 1099,
-      "description": "2 small pizzas loaded with fresh ingredients.",
-      "image": "/images/summer-surprise.jpg",
+      "price": 3149,
+      "description": "Triple the madness with 3 medium pizzas, feeds 4-6 hungry pizza lovers.",
+      "image": "/images/triple-madness-medium.jpg",
       "isPopular": true,
-      "tag": "SUMMER\nSURPRISE",
-      "sub": "2 SMALL PIZZAS",
-      "hue": "from-[#8fd3f4] to-[#a1c4fd]",
-      "dark": false
+      "tag": "3 MEDIUM",
+      "sub": "BEST SELLER"
     },
     {
-      "id": "fl-001",
-      "name": "Sindhi Achari",
-      "category": "Flavours",
-      "price": 1399,
-      "description": "Tangy achari masala with tender chicken chunks and onions.",
-      "urdu": "سنڌھي اچاري",
-      "image": "/images/sindhi-achari.jpg",
+      "id": "pd-005",
+      "name": "Triple The Madness - Large",
+      "category": "Pizza Deals",
+      "price": 4849,
+      "description": "3 large pizzas of your choice. The ultimate party pack.",
+      "image": "/images/triple-madness-large.jpg",
+      "isPopular": false,
+      "tag": "3 LARGE",
+      "sub": "FEAST PACK"
+    },
+    {
+      "id": "pd-006",
+      "name": "Mighty Family Platter 01",
+      "category": "Pizza Deals",
+      "price": 2599,
+      "description": "2 medium pizzas 10 inch, 4 pcs garlic bread, and 1 large 1.5L drink.",
+      "ribbon": "FAMILY SPECIAL",
+      "image": "/images/family-platter-01.jpg",
       "isPopular": true
     },
     {
-      "id": "fl-002",
-      "name": "Khyber Green Boti",
-      "category": "Flavours",
-      "price": 1399,
-      "description": "Green chutney marinated boti with capsicum and onion.",
-      "urdu": "خیبر گرین بوٹی",
-      "image": "/images/khyber-green-boti.jpg",
+      "id": "pd-007",
+      "name": "Mighty Family Platter 02",
+      "category": "Pizza Deals",
+      "price": 3699,
+      "description": "2 large 12-inch pizzas, 4 pieces of garlic bread, and 1 large 1.5L drink.",
+      "ribbon": "MEGA FEAST",
+      "image": "/images/family-platter-02.jpg",
       "isPopular": false
     },
     {
-      "id": "fl-003",
-      "name": "Balochi Tikka",
-      "category": "Flavours",
-      "price": 1399,
-      "description": "Smoky tikka masala topped with fresh lemon and mint.",
-      "urdu": "بلوچی ٹِکہ",
-      "image": "/images/balochi-tikka.jpg",
-      "isPopular": false
-    },
-    {
-      "id": "fl-004",
-      "name": "Punjabi Smokey Seekh",
-      "category": "Flavours",
-      "price": 1399,
-      "description": "Charcoal-smoked seekh kebab crumble with signature spices.",
-      "urdu": "پنجابی سموکی سیخ",
-      "image": "/images/punjabi-smokey-seekh.jpg",
-      "isPopular": false
-    },
-    {
-      "id": "mp-001",
-      "name": "Jumbo Deal",
-      "category": "Mighty Family Platter",
+      "id": "pd-008",
+      "name": "Jumbo Deal 16\"",
+      "category": "Pizza Deals",
       "price": 2749,
-      "description": "16 INCH JUMBO PIZZA",
+      "description": "16-inch colossal Jumbo Pizza with 1.5L drink. Great for big gatherings.",
       "ribbon": "JUMBO SPECIAL",
       "image": "/images/jumbo-deal.jpg",
       "isPopular": true
     },
     {
-      "id": "mp-002",
-      "name": "Mighty Family Platter 01",
-      "category": "Mighty Family Platter",
-      "price": 2599,
-      "description": "2 medium pizzas 10 inch, 4 pcs garlic bread, and 1 large drink",
-      "ribbon": "FAMILY MIGHTY PLATTER 1",
-      "image": "/images/family-platter-01.jpg",
-      "isPopular": false
+      "id": "sp-001",
+      "name": "Ranch Passion Pizza",
+      "category": "Specialty Pizzas",
+      "price": 1499,
+      "description": "Creamy ranch sauce base topped with grilled fajita chicken, mushrooms, and bell peppers.",
+      "isPopular": true,
+      "hasCustomization": true,
+      "sizes": [
+        { "name": "Small 6\"", "price": 649 },
+        { "name": "Medium 10\"", "price": 1499 },
+        { "name": "Large 12\"", "price": 2199 },
+        { "name": "Jumbo 16\"", "price": 2899 }
+      ]
     },
     {
-      "id": "mp-003",
-      "name": "Mighty Family Platter 02",
-      "category": "Mighty Family Platter",
-      "price": 3699,
-      "description": "2 large pizzas, 4 pieces of garlic bread, and 1 large drink",
-      "ribbon": "FAMILY MIGHTY PLATTER 2",
-      "image": "/images/family-platter-02.jpg",
-      "isPopular": false
+      "id": "sp-002",
+      "name": "Creamy Super Max",
+      "category": "Specialty Pizzas",
+      "price": 1549,
+      "description": "Loaded with rich cream cheese sauce, roasted chicken tikka, sweet corn, and double mozzarella.",
+      "isPopular": true,
+      "hasCustomization": true,
+      "sizes": [
+        { "name": "Small 6\"", "price": 679 },
+        { "name": "Medium 10\"", "price": 1549 },
+        { "name": "Large 12\"", "price": 2249 },
+        { "name": "Jumbo 16\"", "price": 2999 }
+      ]
     },
     {
-      "id": "tm-001",
-      "name": "Triple The Madness - Small",
-      "category": "Triple The Madness",
+      "id": "sp-003",
+      "name": "BBQ Buzz Supreme",
+      "category": "Specialty Pizzas",
       "price": 1449,
-      "description": "3 small pizza",
-      "tag": "3 SMALL",
-      "image": "/images/triple-madness-small.jpg",
+      "description": "Smoky BBQ glazed chicken bites, caramelized red onions, capsicum, and cheddar drizzle.",
+      "isPopular": false,
+      "hasCustomization": true,
+      "sizes": [
+        { "name": "Small 6\"", "price": 629 },
+        { "name": "Medium 10\"", "price": 1449 },
+        { "name": "Large 12\"", "price": 2149 },
+        { "name": "Jumbo 16\"", "price": 2849 }
+      ]
+    },
+    {
+      "id": "sp-004",
+      "name": "Cheesy Cheese Lover",
+      "category": "Specialty Pizzas",
+      "price": 1399,
+      "description": "Four-cheese blend of mozzarella, cheddar, parmesan, and ricotta over rich marinara.",
+      "isPopular": false,
+      "hasCustomization": true,
+      "sizes": [
+        { "name": "Small 6\"", "price": 599 },
+        { "name": "Medium 10\"", "price": 1399 },
+        { "name": "Large 12\"", "price": 1999 },
+        { "name": "Jumbo 16\"", "price": 2699 }
+      ]
+    },
+    {
+      "id": "tp-001",
+      "name": "Chicken Tikka Pizza",
+      "category": "Traditional Pizzas",
+      "price": 1399,
+      "description": "Traditional Pakistani taste tender chicken tikka chunks with fresh onions and green herbs.",
+      "urdu": "چکن ٹکہ پیزا",
+      "isPopular": true,
+      "hasCustomization": true,
+      "sizes": [
+        { "name": "Small 6\"", "price": 550 },
+        { "name": "Medium 10\"", "price": 1399 },
+        { "name": "Large 12\"", "price": 1999 },
+        { "name": "Jumbo 16\"", "price": 2699 }
+      ]
+    },
+    {
+      "id": "tp-002",
+      "name": "Chicken Fajita Sicilian",
+      "category": "Traditional Pizzas",
+      "price": 1399,
+      "description": "Spicy Mexican style fajita chicken, capsicum, onions, jalapenos, and black olives.",
+      "urdu": "چکن فجیتا سسلین",
+      "isPopular": true,
+      "hasCustomization": true,
+      "sizes": [
+        { "name": "Small 6\"", "price": 550 },
+        { "name": "Medium 10\"", "price": 1399 },
+        { "name": "Large 12\"", "price": 1999 },
+        { "name": "Jumbo 16\"", "price": 2699 }
+      ]
+    },
+    {
+      "id": "tp-003",
+      "name": "Sindhi Achari Pizza",
+      "category": "Traditional Pizzas",
+      "price": 1399,
+      "description": "Spicy and tangy achari marinated chicken chunks with pickled herbs.",
+      "urdu": "سنڌھي اچاري پیزا",
+      "isPopular": true,
+      "hasCustomization": true,
+      "sizes": [
+        { "name": "Small 6\"", "price": 550 },
+        { "name": "Medium 10\"", "price": 1399 },
+        { "name": "Large 12\"", "price": 1999 },
+        { "name": "Jumbo 16\"", "price": 2699 }
+      ]
+    },
+    {
+      "id": "tp-004",
+      "name": "Khyber Green Boti",
+      "category": "Traditional Pizzas",
+      "price": 1399,
+      "description": "Green chutney marinated succulent boti pieces with crunchy capsicum.",
+      "urdu": "خیبر گرین بوٹی",
+      "isPopular": false,
+      "hasCustomization": true,
+      "sizes": [
+        { "name": "Small 6\"", "price": 550 },
+        { "name": "Medium 10\"", "price": 1399 },
+        { "name": "Large 12\"", "price": 1999 },
+        { "name": "Jumbo 16\"", "price": 2699 }
+      ]
+    },
+    {
+      "id": "tp-005",
+      "name": "Balochi Tikka Delight",
+      "category": "Traditional Pizzas",
+      "price": 1399,
+      "description": "Smoky Balochi spice rubbed chicken breast with crisp mint leaves and lemon zest.",
+      "urdu": "بلوچی ٹِکہ ڈیلائٹ",
+      "isPopular": false,
+      "hasCustomization": true,
+      "sizes": [
+        { "name": "Small 6\"", "price": 550 },
+        { "name": "Medium 10\"", "price": 1399 },
+        { "name": "Large 12\"", "price": 1999 },
+        { "name": "Jumbo 16\"", "price": 2699 }
+      ]
+    },
+    {
+      "id": "tp-006",
+      "name": "Punjabi Smokey Seekh",
+      "category": "Traditional Pizzas",
+      "price": 1399,
+      "description": "Charcoal smoked beef seekh kebab slices layered over herbs and mozzarella.",
+      "urdu": "پنجابی سموکی سیخ",
+      "isPopular": false,
+      "hasCustomization": true,
+      "sizes": [
+        { "name": "Small 6\"", "price": 550 },
+        { "name": "Medium 10\"", "price": 1399 },
+        { "name": "Large 12\"", "price": 1999 },
+        { "name": "Jumbo 16\"", "price": 2699 }
+      ]
+    },
+    {
+      "id": "tp-007",
+      "name": "Veggie Feast Lover",
+      "category": "Traditional Pizzas",
+      "price": 1199,
+      "description": "A colorful celebration of mushrooms, onions, bell peppers, tomatoes, and black olives.",
+      "isPopular": false,
+      "hasCustomization": true,
+      "sizes": [
+        { "name": "Small 6\"", "price": 499 },
+        { "name": "Medium 10\"", "price": 1199 },
+        { "name": "Large 12\"", "price": 1699 },
+        { "name": "Jumbo 16\"", "price": 2399 }
+      ]
+    },
+    {
+      "id": "st-001",
+      "name": "Garlic Bread with Cheese",
+      "category": "Starters & Appetizers",
+      "price": 380,
+      "description": "4 crispy baguette slices toasted with herb butter and melted mozzarella.",
+      "isPopular": true
+    },
+    {
+      "id": "st-002",
+      "name": "Flaming Buffalo Wings (6 Pcs)",
+      "category": "Starters & Appetizers",
+      "price": 540,
+      "description": "6 juicy chicken wings tossed in fiery homemade buffalo glaze, served with dip.",
+      "isPopular": true
+    },
+    {
+      "id": "st-003",
+      "name": "Crispy Mozzarella Sticks",
+      "category": "Starters & Appetizers",
+      "price": 490,
+      "description": "4 golden breaded sticks filled with stringy mozzarella, served with marinara dip.",
       "isPopular": false
     },
     {
-      "id": "tm-002",
-      "name": "Triple The Madness - Medium",
-      "category": "Triple The Madness",
-      "price": 3149,
-      "description": "Triple the madness with 3 medium pizzas",
-      "tag": "3 MEDIUM",
-      "image": "/images/triple-madness-medium.jpg",
-      "isPopular": false
+      "id": "st-004",
+      "name": "Cheesy Pizza Fries",
+      "category": "Starters & Appetizers",
+      "price": 520,
+      "description": "Crispy fries smothered in pizza sauce, pepperoni cubes, and melted mozzarella.",
+      "isPopular": true
     },
     {
-      "id": "tm-003",
-      "name": "Triple The Madness - Large",
-      "category": "Triple The Madness",
-      "price": 4849,
-      "description": "Triple the madness with 3 large pizzas",
-      "tag": "3 LARGE",
-      "image": "/images/triple-madness-large.jpg",
-      "isPopular": false
-    },
-    {
-      "id": "tm-004",
-      "name": "Triple The Madness - Jumbo",
-      "category": "Triple The Madness",
-      "price": 7799,
-      "description": "Triple the madness with 3 jumbo pizzas",
-      "tag": "3 JUMBO",
-      "image": "/images/triple-madness-jumbo.jpg",
-      "isPopular": false
-    },
-    {
-      "id": "ss-001",
-      "name": "Summer Surprise 2 Small Pizza Deal",
-      "category": "Summer Deals",
-      "price": 1099,
-      "description": "2 small pizza, 2 small drink",
-      "image": "/images/summer-surprise-small.jpg",
-      "isPopular": false
-    },
-    {
-      "id": "ss-002",
-      "name": "Summer Surprise 2 Medium Pizza Deal",
-      "category": "Summer Deals",
-      "price": 2299,
-      "description": "2 medium pizza, 1 liter drink",
-      "image": "/images/summer-surprise-medium.jpg",
-      "isPopular": false
-    },
-    {
-      "id": "ss-003",
-      "name": "Summer Surprise 2 Large Pizza Deal",
-      "category": "Summer Deals",
-      "price": 2999,
-      "description": "2 large pizza, 1 liter drink",
-      "image": "/images/summer-surprise-large.jpg",
-      "isPopular": false
-    },
-    {
-      "id": "ss-004",
-      "name": "Summer Surprise Small Deal",
-      "category": "Summer Deals",
-      "price": 499,
-      "description": "Enjoy our 6-inch small pizza with unbeatable taste.",
-      "image": "/images/summer-deal-small.jpg",
-      "isPopular": false
-    },
-    {
-      "id": "ss-005",
-      "name": "Summer Surprise Medium Deal",
-      "category": "Summer Deals",
-      "price": 1149,
-      "description": "Enjoy our 10 inch medium pizza with unbeatable taste.",
-      "image": "/images/summer-deal-medium.jpg",
-      "isPopular": false
-    },
-    {
-      "id": "ss-006",
-      "name": "Summer Surprise Large Deal",
-      "category": "Summer Deals",
-      "price": 1599,
-      "description": "Enjoy our 12-inch large pizza deal with unbeatable taste.",
-      "image": "/images/summer-deal-large.jpg",
+      "id": "st-005",
+      "name": "Chicken Nuggets with Honey Mustard (6 Pcs)",
+      "category": "Starters & Appetizers",
+      "price": 430,
+      "description": "Crispy golden bite-sized nuggets with signature honey mustard sauce.",
       "isPopular": false
     },
     {
       "id": "sr-001",
-      "name": "Combo Deal 01",
-      "category": "Stuffed Pizza Roll",
-      "price": 550,
-      "description": "Pizza roll & 350ml small drink",
-      "image": "/images/sr-combo-1.jpg",
-      "isPopular": false
+      "name": "Peri Peri Punch Roll",
+      "category": "Stuffed Pizza Rolls",
+      "price": 549,
+      "description": "Peri peri sauce with malai boti, crunchy capsicum, onion, and melted cheese in a baked roll.",
+      "isPopular": true
     },
     {
       "id": "sr-002",
-      "name": "Combo Deal 02",
-      "category": "Stuffed Pizza Roll",
-      "price": 1099,
-      "description": "Two pizza roll any flavor with 2 small drink 350ml",
-      "image": "/images/sr-combo-2.jpg",
+      "name": "Dynamite Blast Roll",
+      "category": "Stuffed Pizza Rolls",
+      "price": 549,
+      "description": "Dynamite spicy sauce, fajita chicken, onion, and jalapeno rolled in crispy crust.",
       "isPopular": true
     },
     {
       "id": "sr-003",
-      "name": "Peri Peri Punch",
-      "category": "Stuffed Pizza Roll",
+      "name": "The Cali Special Spin Roll",
+      "category": "Stuffed Pizza Rolls",
       "price": 549,
-      "description": "Peri peri sauce with malai boti, capsicum, onion, green chilies",
-      "image": "/images/peri-peri-punch.jpg",
+      "description": "Creamy chaska sauce with tikka meat, malai boti, capsicum, and herbs.",
       "isPopular": false
     },
     {
       "id": "sr-004",
-      "name": "Dynamite Blast",
-      "category": "Stuffed Pizza Roll",
+      "name": "Ranchy Madness Roll",
+      "category": "Stuffed Pizza Rolls",
       "price": 549,
-      "description": "Dynamite sauce with fajita meat, capsicum, onion, green chilies",
-      "image": "/images/dynamite-blast.jpg",
+      "description": "Tikka meat drizzled with rich ranch sauce, onion, and gooey cheese.",
+      "isPopular": false
+    },
+    {
+      "id": "ps-001",
+      "name": "Fettuccine Alfredo Pasta",
+      "category": "Pastas & Sandwiches",
+      "price": 790,
+      "description": "Tender fettuccine tossed in rich parmesan cream sauce with grilled chicken and mushrooms.",
       "isPopular": true
     },
     {
-      "id": "sr-005",
-      "name": "Sriracha Sizzle",
-      "category": "Stuffed Pizza Roll",
-      "price": 549,
-      "description": "Sriracha sauce with fajita meat, capsicum, onion, mushrooms",
-      "image": "/images/sriracha-sizzle.jpg",
+      "id": "ps-002",
+      "name": "Spicy Chicken Sandwich",
+      "category": "Pastas & Sandwiches",
+      "price": 620,
+      "description": "Toasted ciabatta filled with grilled spicy breast fillet, cheddar slice, and garlic mayo.",
       "isPopular": false
     },
     {
-      "id": "sr-006",
-      "name": "The Cali Special",
-      "category": "Stuffed Pizza Roll",
-      "price": 549,
-      "description": "Creamy chaska with tikka meat, malai boti, capsicum, onion",
-      "image": "/images/cali-special.jpg",
-      "isPopular": false
+      "id": "ds-001",
+      "name": "Chocolate Lava Cake",
+      "category": "Desserts",
+      "price": 420,
+      "description": "Decadent warm chocolate cake with a molten chocolate center that melts in your mouth.",
+      "isPopular": true
     },
     {
-      "id": "sr-007",
-      "name": "Ranchy Madness",
-      "category": "Stuffed Pizza Roll",
-      "price": 549,
-      "description": "Tikka meat with ranch sauce, capsicum, onion, cheese",
-      "image": "/images/ranchy-madness.jpg",
-      "isPopular": false
-    },
-    {
-      "id": "sr-008",
-      "name": "Creamy Chipotle",
-      "category": "Stuffed Pizza Roll",
-      "price": 549,
-      "description": "Tikka meat with chipotle sauce, capsicum, onion, and melted cheese",
-      "image": "/images/creamy-chipotle.jpg",
-      "isPopular": false
-    },
-    {
-      "id": "sc-001",
-      "name": "Deal 02 ( Mini Pizza Fries or Mini Cheese Fries )",
-      "category": "Snackin Combo",
-      "price": 499,
-      "description": "Mini pizza fries or mini cheese fries",
-      "image": "/images/snack-fries.jpg",
-      "isPopular": false
-    },
-    {
-      "id": "sc-002",
-      "name": "Deal 03 ( 4 Pcs Wings )",
-      "category": "Snackin Combo",
-      "price": 399,
-      "description": "4 pcs wings",
-      "image": "/images/snack-wings.jpg",
+      "id": "ds-002",
+      "name": "Fudgy Chocolate Brownie",
+      "category": "Desserts",
+      "price": 320,
+      "description": "Dense, gooey chocolate brownie drizzled with warm chocolate fudge sauce.",
       "isPopular": false
     },
     {
       "id": "dr-001",
       "name": "Coca-Cola 1.5L",
-      "category": "Drinks",
+      "category": "Drinks & Beverages",
       "price": 250,
-      "description": "Ice-cold 1.5 litre Coca-Cola bottle.",
-      "image": "/images/coca-cola-1-5l.jpg",
-      "isPopular": false
+      "description": "1.5 Litre chilled Coca-Cola bottle.",
+      "isPopular": true
     },
     {
       "id": "dr-002",
-      "name": "Sprite 345ml",
-      "category": "Drinks",
+      "name": "Sprite 1.5L",
+      "category": "Drinks & Beverages",
+      "price": 250,
+      "description": "1.5 Litre chilled lemon-lime Sprite bottle.",
+      "isPopular": false
+    },
+    {
+      "id": "dr-003",
+      "name": "Coca-Cola Can 345ml",
+      "category": "Drinks & Beverages",
       "price": 120,
-      "description": "Chilled can of Sprite, 345ml.",
-      "image": "/images/sprite-345ml.jpg",
+      "description": "345ml chilled aluminum can.",
+      "isPopular": false
+    },
+    {
+      "id": "dr-004",
+      "name": "Mineral Water 500ml",
+      "category": "Drinks & Beverages",
+      "price": 80,
+      "description": "Clean, refreshing purified mineral water.",
       "isPopular": false
     }
   ],
@@ -341,11 +412,11 @@
       "name": "Karachi",
       "icon": "fort",
       "branches": [
-        { "id": "khi-clifton", "name": "Clifton Block 4", "deliveryEtaMinutes": 35 },
-        { "id": "khi-gulshan", "name": "Gulshan-e-Iqbal Block 13", "deliveryEtaMinutes": 40 },
-        { "id": "khi-dha", "name": "DHA Phase 5 Badar Commercial", "deliveryEtaMinutes": 30 },
-        { "id": "khi-north", "name": "North Nazimabad Block H", "deliveryEtaMinutes": 45 },
-        { "id": "khi-tariq", "name": "Tariq Road", "deliveryEtaMinutes": 35 }
+        { "id": "khi-clifton", "name": "Clifton Block 4", "address": "Plot 12, Block 4, Clifton, Karachi", "phone": "021-111-753-753", "deliveryEtaMinutes": 35, "dineIn": true, "takeaway": true },
+        { "id": "khi-gulshan", "name": "Gulshan-e-Iqbal Block 13", "address": "Main Rashid Minhas Road, Gulshan, Karachi", "phone": "021-111-753-753", "deliveryEtaMinutes": 40, "dineIn": true, "takeaway": true },
+        { "id": "khi-dha", "name": "DHA Phase 5 Badar Commercial", "address": "26th Street, Badar Commercial, DHA Phase 5, Karachi", "phone": "021-111-753-753", "deliveryEtaMinutes": 30, "dineIn": true, "takeaway": true },
+        { "id": "khi-north", "name": "North Nazimabad Block H", "address": "Hydri Market, North Nazimabad, Karachi", "phone": "021-111-753-753", "deliveryEtaMinutes": 45, "dineIn": false, "takeaway": true },
+        { "id": "khi-tariq", "name": "Tariq Road PECHS", "address": "Opposite Dolmen Mall, Tariq Road, Karachi", "phone": "021-111-753-753", "deliveryEtaMinutes": 35, "dineIn": true, "takeaway": true }
       ]
     },
     {
@@ -353,10 +424,10 @@
       "name": "Lahore",
       "icon": "minar",
       "branches": [
-        { "id": "lhr-gulberg", "name": "Gulberg III Main Boulevard", "deliveryEtaMinutes": 35 },
-        { "id": "lhr-johar", "name": "Johar Town G-1 Market", "deliveryEtaMinutes": 40 },
-        { "id": "lhr-dha", "name": "DHA Phase 6 Commercial Broadway", "deliveryEtaMinutes": 30 },
-        { "id": "lhr-mall", "name": "Mall Road", "deliveryEtaMinutes": 35 }
+        { "id": "lhr-gulberg", "name": "Gulberg III Main Boulevard", "address": "Main Boulevard Gulberg III, Lahore", "phone": "042-111-753-753", "deliveryEtaMinutes": 35, "dineIn": true, "takeaway": true },
+        { "id": "lhr-johar", "name": "Johar Town G-1 Market", "address": "Near Shaukat Khanum, Johar Town, Lahore", "phone": "042-111-753-753", "deliveryEtaMinutes": 40, "dineIn": true, "takeaway": true },
+        { "id": "lhr-dha", "name": "DHA Phase 6 Commercial Broadway", "address": "Main Broadway, DHA Phase 6, Lahore", "phone": "042-111-753-753", "deliveryEtaMinutes": 30, "dineIn": true, "takeaway": true },
+        { "id": "lhr-mall", "name": "Mall Road", "address": "Near Anarkali, Mall Road, Lahore", "phone": "042-111-753-753", "deliveryEtaMinutes": 35, "dineIn": true, "takeaway": true }
       ]
     },
     {
@@ -364,9 +435,9 @@
       "name": "Islamabad",
       "icon": "building",
       "branches": [
-        { "id": "isb-f7", "name": "F-7 Markaz Jinnah Super", "deliveryEtaMinutes": 35 },
-        { "id": "isb-g11", "name": "G-11 Markaz", "deliveryEtaMinutes": 40 },
-        { "id": "isb-bahria", "name": "Bahria Town Phase 4", "deliveryEtaMinutes": 45 }
+        { "id": "isb-f7", "name": "F-7 Markaz Jinnah Super", "address": "Jinnah Super Market, F-7, Islamabad", "phone": "051-111-753-753", "deliveryEtaMinutes": 35, "dineIn": true, "takeaway": true },
+        { "id": "isb-g11", "name": "G-11 Markaz", "address": "G-11 Markaz Plaza, Islamabad", "phone": "051-111-753-753", "deliveryEtaMinutes": 40, "dineIn": true, "takeaway": true },
+        { "id": "isb-bahria", "name": "Bahria Town Phase 4", "address": "Civic Center, Bahria Town Phase 4, Islamabad", "phone": "051-111-753-753", "deliveryEtaMinutes": 45, "dineIn": true, "takeaway": true }
       ]
     },
     {
@@ -374,8 +445,8 @@
       "name": "Hyderabad",
       "icon": "clock",
       "branches": [
-        { "id": "hyd-latifabad", "name": "Latifabad Unit 7", "deliveryEtaMinutes": 40 },
-        { "id": "hyd-auto", "name": "Auto Bhan Road", "deliveryEtaMinutes": 35 }
+        { "id": "hyd-latifabad", "name": "Latifabad Unit 7", "address": "Near Chandni Cinema, Latifabad Unit 7, Hyderabad", "phone": "022-111-753-753", "deliveryEtaMinutes": 40, "dineIn": true, "takeaway": true },
+        { "id": "hyd-auto", "name": "Auto Bhan Road", "address": "Main Auto Bhan Road, Latifabad, Hyderabad", "phone": "022-111-753-753", "deliveryEtaMinutes": 35, "dineIn": true, "takeaway": true }
       ]
     },
     {
@@ -383,7 +454,7 @@
       "name": "Gujranwala",
       "icon": "castle",
       "branches": [
-        { "id": "guj-model-town", "name": "Model Town Main Market", "deliveryEtaMinutes": 40 }
+        { "id": "guj-model-town", "name": "Model Town Main Market", "address": "Main Market, Model Town, Gujranwala", "phone": "055-111-753-753", "deliveryEtaMinutes": 40, "dineIn": true, "takeaway": true }
       ]
     },
     {
@@ -391,7 +462,7 @@
       "name": "Faisalabad",
       "icon": "tower",
       "branches": [
-        { "id": "fsd-d-ground", "name": "D-Ground Peoples Colony", "deliveryEtaMinutes": 40 }
+        { "id": "fsd-d-ground", "name": "D-Ground Peoples Colony", "address": "D-Ground Commercial Area, Peoples Colony No. 1, Faisalabad", "phone": "041-111-753-753", "deliveryEtaMinutes": 40, "dineIn": true, "takeaway": true }
       ]
     },
     {
@@ -399,7 +470,7 @@
       "name": "Sargodha",
       "icon": "mosque",
       "branches": [
-        { "id": "sgd-university-road", "name": "University Road", "deliveryEtaMinutes": 45 }
+        { "id": "sgd-university-road", "name": "University Road", "address": "Near University of Sargodha, University Road, Sargodha", "phone": "048-111-753-753", "deliveryEtaMinutes": 45, "dineIn": true, "takeaway": true }
       ]
     },
     {
@@ -407,7 +478,7 @@
       "name": "Quetta",
       "icon": "building",
       "branches": [
-        { "id": "uet-jinnah-road", "name": "Jinnah Road Commercial", "deliveryEtaMinutes": 45 }
+        { "id": "uet-jinnah-road", "name": "Jinnah Road Commercial", "address": "Main Jinnah Road, Quetta", "phone": "081-111-753-753", "deliveryEtaMinutes": 45, "dineIn": true, "takeaway": true }
       ]
     },
     {
@@ -415,7 +486,7 @@
       "name": "Mandi Bahauddin",
       "icon": "arch",
       "branches": [
-        { "id": "mbd-main-bazar", "name": "Main Bazar Saddar", "deliveryEtaMinutes": 45 }
+        { "id": "mbd-main-bazar", "name": "Main Bazar Saddar", "address": "Saddar Bazar, Mandi Bahauddin", "phone": "0546-111-753-753", "deliveryEtaMinutes": 45, "dineIn": true, "takeaway": true }
       ]
     }
   ]

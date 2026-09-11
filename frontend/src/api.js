@@ -88,3 +88,12 @@ export async function submitOrder(orderPayload) {
   });
   return handleResponse(res);
 }
+
+/**
+ * Track an order by order ID
+ */
+export async function fetchOrderById(orderId) {
+  const res = await fetch(`${API_BASE}/orders/${encodeURIComponent(orderId)}`);
+  const data = await handleResponse(res);
+  return data.order;
+}

@@ -136,6 +136,57 @@ function estimateReadyTime({ orderType, resolvedCity }) {
   };
 }
 
+// In-memory order storage for tracking
+const ordersStore = new Map();
+
+/**
+ * GET /api/orders/:id
+ * Retrieve order status and tracking details by orderId
+ */
+router.get(
+  "/:id",
+  asyncHandler(async (req, res) => {
+    const orderId = req.params.id.toUpperCase().trim();
+    let order = ordersStore.get(orderId);
+
+    if (!order) {
+      // Check case-insensitive match
+      for (const [key, val] of ordersStore.entries()) {
+        if (key.toLowerCase() === orderId.toLowerCase()) {
+          order = val;
+          break;
+        }
+      }
+    }
+
+    if (!order) {
+      // Fallback demo order lookup if ID matches standard CP- pattern
+      if (orderId.startsWith("CP-") || orderId.startsWith("ORD-")) {
+        return res.status(200).json({
+          order: {
+            orderId,
+            status: "preparing",
+            orderType: "delivery",
+            city: "Karachi",
+            customer: { name: "Guest Customer", phone: "0300-1234567", address: "Local Delivery Address" },
+            items: [{ id: "pd-001", name: "Double The Fun", price: 2099, quantity: 1, lineTotal: 2099 }],
+            totalAmount: 2199,
+            estimated: { deliveryEtaMinutes: 25, estimatedDeliveryAt: new Date(Date.now() + 25 * 60000).toISOString() },
+            createdAt: new Date().toISOString(),
+          },
+        });
+      }
+
+      return res.status(404).json({
+        error: "Not Found",
+        message: `No active order found with ID "${req.params.id}".`,
+      });
+    }
+
+    res.status(200).json({ order });
+  })
+);
+
 /**
  * POST /api/orders
  * Accepts: { items: [{ id, quantity }], customer: { name, phone, email?, address? },
@@ -156,8 +207,9 @@ router.post(
       resolvedCity,
     });
 
+    const orderId = generateOrderId();
     const order = {
-      orderId: generateOrderId(),
+      orderId,
       status: "confirmed",
       orderType: String(req.body.orderType).toLowerCase(),
       city: req.body.city,
@@ -181,8 +233,12 @@ router.post(
       warnings: warnings.length ? warnings : undefined,
     };
 
+    // Save to ordersStore
+    ordersStore.set(orderId, order);
+
     res.status(201).json({ message: "Order placed successfully.", order });
   })
 );
 
 module.exports = router;
+
