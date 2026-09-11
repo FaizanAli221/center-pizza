@@ -1,0 +1,422 @@
+{
+  "categories": [
+    { "id": "pizza-deals", "name": "Pizza Deals" },
+    { "id": "summer-deals", "name": "Summer Deals" },
+    { "id": "flavours", "name": "Flavours" },
+    { "id": "mighty-platters", "name": "Mighty Family Platter" },
+    { "id": "triple-madness", "name": "Triple The Madness" },
+    { "id": "stuffed-pizza-rolls", "name": "Stuffed Pizza Roll" },
+    { "id": "snackin-combo", "name": "Snackin Combo" },
+    { "id": "drinks", "name": "Drinks" }
+  ],
+  "items": [
+    {
+      "id": "pd-001",
+      "name": "Double The Fun",
+      "category": "Pizza Deals",
+      "price": 2099,
+      "description": "2 medium pizzas of your choice, perfect for sharing.",
+      "image": "/images/double-the-fun.jpg",
+      "isPopular": true,
+      "tag": "DOUBLE\nTHE FUN",
+      "sub": "2 MEDIUM PIZZA",
+      "hue": "from-[#f3f0c4] to-[#dfe9c4]",
+      "dark": false
+    },
+    {
+      "id": "pd-002",
+      "name": "Share Box 2",
+      "category": "Pizza Deals",
+      "price": 1699,
+      "description": "2 pcs garlic bread, spin roll, and 2 soft drinks.",
+      "image": "/images/share-box-2.jpg",
+      "isPopular": true,
+      "tag": "SHARE THE\nLOVE CHEESY WAY",
+      "sub": "SHARE BOX 2",
+      "hue": "from-[#1f4a24] to-[#2D7A38]",
+      "dark": true
+    },
+    {
+      "id": "pd-003",
+      "name": "Combo Deal 02",
+      "category": "Pizza Deals",
+      "price": 1099,
+      "description": "Two pizza roll any flavor with 2 small drink 350ml.",
+      "image": "/images/combo-deal-02.jpg",
+      "isPopular": true,
+      "tag": "STUFFED\nPIZZA ROLL",
+      "sub": "COMBO DEAL 02",
+      "hue": "from-[#c88a3a] to-[#e0ab5c]",
+      "dark": false
+    },
+    {
+      "id": "pd-004",
+      "name": "Summer Surprise",
+      "category": "Pizza Deals",
+      "price": 1099,
+      "description": "2 small pizzas loaded with fresh ingredients.",
+      "image": "/images/summer-surprise.jpg",
+      "isPopular": true,
+      "tag": "SUMMER\nSURPRISE",
+      "sub": "2 SMALL PIZZAS",
+      "hue": "from-[#8fd3f4] to-[#a1c4fd]",
+      "dark": false
+    },
+    {
+      "id": "fl-001",
+      "name": "Sindhi Achari",
+      "category": "Flavours",
+      "price": 1399,
+      "description": "Tangy achari masala with tender chicken chunks and onions.",
+      "urdu": "سنڌھي اچاري",
+      "image": "/images/sindhi-achari.jpg",
+      "isPopular": true
+    },
+    {
+      "id": "fl-002",
+      "name": "Khyber Green Boti",
+      "category": "Flavours",
+      "price": 1399,
+      "description": "Green chutney marinated boti with capsicum and onion.",
+      "urdu": "خیبر گرین بوٹی",
+      "image": "/images/khyber-green-boti.jpg",
+      "isPopular": false
+    },
+    {
+      "id": "fl-003",
+      "name": "Balochi Tikka",
+      "category": "Flavours",
+      "price": 1399,
+      "description": "Smoky tikka masala topped with fresh lemon and mint.",
+      "urdu": "بلوچی ٹِکہ",
+      "image": "/images/balochi-tikka.jpg",
+      "isPopular": false
+    },
+    {
+      "id": "fl-004",
+      "name": "Punjabi Smokey Seekh",
+      "category": "Flavours",
+      "price": 1399,
+      "description": "Charcoal-smoked seekh kebab crumble with signature spices.",
+      "urdu": "پنجابی سموکی سیخ",
+      "image": "/images/punjabi-smokey-seekh.jpg",
+      "isPopular": false
+    },
+    {
+      "id": "mp-001",
+      "name": "Jumbo Deal",
+      "category": "Mighty Family Platter",
+      "price": 2749,
+      "description": "16 INCH JUMBO PIZZA",
+      "ribbon": "JUMBO SPECIAL",
+      "image": "/images/jumbo-deal.jpg",
+      "isPopular": true
+    },
+    {
+      "id": "mp-002",
+      "name": "Mighty Family Platter 01",
+      "category": "Mighty Family Platter",
+      "price": 2599,
+      "description": "2 medium pizzas 10 inch, 4 pcs garlic bread, and 1 large drink",
+      "ribbon": "FAMILY MIGHTY PLATTER 1",
+      "image": "/images/family-platter-01.jpg",
+      "isPopular": false
+    },
+    {
+      "id": "mp-003",
+      "name": "Mighty Family Platter 02",
+      "category": "Mighty Family Platter",
+      "price": 3699,
+      "description": "2 large pizzas, 4 pieces of garlic bread, and 1 large drink",
+      "ribbon": "FAMILY MIGHTY PLATTER 2",
+      "image": "/images/family-platter-02.jpg",
+      "isPopular": false
+    },
+    {
+      "id": "tm-001",
+      "name": "Triple The Madness - Small",
+      "category": "Triple The Madness",
+      "price": 1449,
+      "description": "3 small pizza",
+      "tag": "3 SMALL",
+      "image": "/images/triple-madness-small.jpg",
+      "isPopular": false
+    },
+    {
+      "id": "tm-002",
+      "name": "Triple The Madness - Medium",
+      "category": "Triple The Madness",
+      "price": 3149,
+      "description": "Triple the madness with 3 medium pizzas",
+      "tag": "3 MEDIUM",
+      "image": "/images/triple-madness-medium.jpg",
+      "isPopular": false
+    },
+    {
+      "id": "tm-003",
+      "name": "Triple The Madness - Large",
+      "category": "Triple The Madness",
+      "price": 4849,
+      "description": "Triple the madness with 3 large pizzas",
+      "tag": "3 LARGE",
+      "image": "/images/triple-madness-large.jpg",
+      "isPopular": false
+    },
+    {
+      "id": "tm-004",
+      "name": "Triple The Madness - Jumbo",
+      "category": "Triple The Madness",
+      "price": 7799,
+      "description": "Triple the madness with 3 jumbo pizzas",
+      "tag": "3 JUMBO",
+      "image": "/images/triple-madness-jumbo.jpg",
+      "isPopular": false
+    },
+    {
+      "id": "ss-001",
+      "name": "Summer Surprise 2 Small Pizza Deal",
+      "category": "Summer Deals",
+      "price": 1099,
+      "description": "2 small pizza, 2 small drink",
+      "image": "/images/summer-surprise-small.jpg",
+      "isPopular": false
+    },
+    {
+      "id": "ss-002",
+      "name": "Summer Surprise 2 Medium Pizza Deal",
+      "category": "Summer Deals",
+      "price": 2299,
+      "description": "2 medium pizza, 1 liter drink",
+      "image": "/images/summer-surprise-medium.jpg",
+      "isPopular": false
+    },
+    {
+      "id": "ss-003",
+      "name": "Summer Surprise 2 Large Pizza Deal",
+      "category": "Summer Deals",
+      "price": 2999,
+      "description": "2 large pizza, 1 liter drink",
+      "image": "/images/summer-surprise-large.jpg",
+      "isPopular": false
+    },
+    {
+      "id": "ss-004",
+      "name": "Summer Surprise Small Deal",
+      "category": "Summer Deals",
+      "price": 499,
+      "description": "Enjoy our 6-inch small pizza with unbeatable taste.",
+      "image": "/images/summer-deal-small.jpg",
+      "isPopular": false
+    },
+    {
+      "id": "ss-005",
+      "name": "Summer Surprise Medium Deal",
+      "category": "Summer Deals",
+      "price": 1149,
+      "description": "Enjoy our 10 inch medium pizza with unbeatable taste.",
+      "image": "/images/summer-deal-medium.jpg",
+      "isPopular": false
+    },
+    {
+      "id": "ss-006",
+      "name": "Summer Surprise Large Deal",
+      "category": "Summer Deals",
+      "price": 1599,
+      "description": "Enjoy our 12-inch large pizza deal with unbeatable taste.",
+      "image": "/images/summer-deal-large.jpg",
+      "isPopular": false
+    },
+    {
+      "id": "sr-001",
+      "name": "Combo Deal 01",
+      "category": "Stuffed Pizza Roll",
+      "price": 550,
+      "description": "Pizza roll & 350ml small drink",
+      "image": "/images/sr-combo-1.jpg",
+      "isPopular": false
+    },
+    {
+      "id": "sr-002",
+      "name": "Combo Deal 02",
+      "category": "Stuffed Pizza Roll",
+      "price": 1099,
+      "description": "Two pizza roll any flavor with 2 small drink 350ml",
+      "image": "/images/sr-combo-2.jpg",
+      "isPopular": true
+    },
+    {
+      "id": "sr-003",
+      "name": "Peri Peri Punch",
+      "category": "Stuffed Pizza Roll",
+      "price": 549,
+      "description": "Peri peri sauce with malai boti, capsicum, onion, green chilies",
+      "image": "/images/peri-peri-punch.jpg",
+      "isPopular": false
+    },
+    {
+      "id": "sr-004",
+      "name": "Dynamite Blast",
+      "category": "Stuffed Pizza Roll",
+      "price": 549,
+      "description": "Dynamite sauce with fajita meat, capsicum, onion, green chilies",
+      "image": "/images/dynamite-blast.jpg",
+      "isPopular": true
+    },
+    {
+      "id": "sr-005",
+      "name": "Sriracha Sizzle",
+      "category": "Stuffed Pizza Roll",
+      "price": 549,
+      "description": "Sriracha sauce with fajita meat, capsicum, onion, mushrooms",
+      "image": "/images/sriracha-sizzle.jpg",
+      "isPopular": false
+    },
+    {
+      "id": "sr-006",
+      "name": "The Cali Special",
+      "category": "Stuffed Pizza Roll",
+      "price": 549,
+      "description": "Creamy chaska with tikka meat, malai boti, capsicum, onion",
+      "image": "/images/cali-special.jpg",
+      "isPopular": false
+    },
+    {
+      "id": "sr-007",
+      "name": "Ranchy Madness",
+      "category": "Stuffed Pizza Roll",
+      "price": 549,
+      "description": "Tikka meat with ranch sauce, capsicum, onion, cheese",
+      "image": "/images/ranchy-madness.jpg",
+      "isPopular": false
+    },
+    {
+      "id": "sr-008",
+      "name": "Creamy Chipotle",
+      "category": "Stuffed Pizza Roll",
+      "price": 549,
+      "description": "Tikka meat with chipotle sauce, capsicum, onion, and melted cheese",
+      "image": "/images/creamy-chipotle.jpg",
+      "isPopular": false
+    },
+    {
+      "id": "sc-001",
+      "name": "Deal 02 ( Mini Pizza Fries or Mini Cheese Fries )",
+      "category": "Snackin Combo",
+      "price": 499,
+      "description": "Mini pizza fries or mini cheese fries",
+      "image": "/images/snack-fries.jpg",
+      "isPopular": false
+    },
+    {
+      "id": "sc-002",
+      "name": "Deal 03 ( 4 Pcs Wings )",
+      "category": "Snackin Combo",
+      "price": 399,
+      "description": "4 pcs wings",
+      "image": "/images/snack-wings.jpg",
+      "isPopular": false
+    },
+    {
+      "id": "dr-001",
+      "name": "Coca-Cola 1.5L",
+      "category": "Drinks",
+      "price": 250,
+      "description": "Ice-cold 1.5 litre Coca-Cola bottle.",
+      "image": "/images/coca-cola-1-5l.jpg",
+      "isPopular": false
+    },
+    {
+      "id": "dr-002",
+      "name": "Sprite 345ml",
+      "category": "Drinks",
+      "price": 120,
+      "description": "Chilled can of Sprite, 345ml.",
+      "image": "/images/sprite-345ml.jpg",
+      "isPopular": false
+    }
+  ],
+  "cities": [
+    {
+      "id": "khi",
+      "name": "Karachi",
+      "icon": "fort",
+      "branches": [
+        { "id": "khi-clifton", "name": "Clifton Block 4", "deliveryEtaMinutes": 35 },
+        { "id": "khi-gulshan", "name": "Gulshan-e-Iqbal Block 13", "deliveryEtaMinutes": 40 },
+        { "id": "khi-dha", "name": "DHA Phase 5 Badar Commercial", "deliveryEtaMinutes": 30 },
+        { "id": "khi-north", "name": "North Nazimabad Block H", "deliveryEtaMinutes": 45 },
+        { "id": "khi-tariq", "name": "Tariq Road", "deliveryEtaMinutes": 35 }
+      ]
+    },
+    {
+      "id": "lhr",
+      "name": "Lahore",
+      "icon": "minar",
+      "branches": [
+        { "id": "lhr-gulberg", "name": "Gulberg III Main Boulevard", "deliveryEtaMinutes": 35 },
+        { "id": "lhr-johar", "name": "Johar Town G-1 Market", "deliveryEtaMinutes": 40 },
+        { "id": "lhr-dha", "name": "DHA Phase 6 Commercial Broadway", "deliveryEtaMinutes": 30 },
+        { "id": "lhr-mall", "name": "Mall Road", "deliveryEtaMinutes": 35 }
+      ]
+    },
+    {
+      "id": "isb",
+      "name": "Islamabad",
+      "icon": "building",
+      "branches": [
+        { "id": "isb-f7", "name": "F-7 Markaz Jinnah Super", "deliveryEtaMinutes": 35 },
+        { "id": "isb-g11", "name": "G-11 Markaz", "deliveryEtaMinutes": 40 },
+        { "id": "isb-bahria", "name": "Bahria Town Phase 4", "deliveryEtaMinutes": 45 }
+      ]
+    },
+    {
+      "id": "hyd",
+      "name": "Hyderabad",
+      "icon": "clock",
+      "branches": [
+        { "id": "hyd-latifabad", "name": "Latifabad Unit 7", "deliveryEtaMinutes": 40 },
+        { "id": "hyd-auto", "name": "Auto Bhan Road", "deliveryEtaMinutes": 35 }
+      ]
+    },
+    {
+      "id": "guj",
+      "name": "Gujranwala",
+      "icon": "castle",
+      "branches": [
+        { "id": "guj-model-town", "name": "Model Town Main Market", "deliveryEtaMinutes": 40 }
+      ]
+    },
+    {
+      "id": "fsd",
+      "name": "Faisalabad",
+      "icon": "tower",
+      "branches": [
+        { "id": "fsd-d-ground", "name": "D-Ground Peoples Colony", "deliveryEtaMinutes": 40 }
+      ]
+    },
+    {
+      "id": "sgd",
+      "name": "Sargodha",
+      "icon": "mosque",
+      "branches": [
+        { "id": "sgd-university-road", "name": "University Road", "deliveryEtaMinutes": 45 }
+      ]
+    },
+    {
+      "id": "uet",
+      "name": "Quetta",
+      "icon": "building",
+      "branches": [
+        { "id": "uet-jinnah-road", "name": "Jinnah Road Commercial", "deliveryEtaMinutes": 45 }
+      ]
+    },
+    {
+      "id": "mbd",
+      "name": "Mandi Bahauddin",
+      "icon": "arch",
+      "branches": [
+        { "id": "mbd-main-bazar", "name": "Main Bazar Saddar", "deliveryEtaMinutes": 45 }
+      ]
+    }
+  ]
+}

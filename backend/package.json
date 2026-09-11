@@ -1,0 +1,31 @@
+{
+  "name": "california-pizza-api",
+  "version": "1.0.0",
+  "description": "Lightweight serverless REST API (Express on Vercel) powering a California Pizza / Pizza Hut style food-ordering web app.",
+  "main": "api/index.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node api/index.js",
+    "dev": "nodemon api/index.js",
+    "test": "echo \"no tests yet\" && exit 0"
+  },
+  "engines": {
+    "node": ">=18.x"
+  },
+  "keywords": [
+    "express",
+    "vercel",
+    "serverless",
+    "food-ordering",
+    "rest-api"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.4"
+  }
+}
