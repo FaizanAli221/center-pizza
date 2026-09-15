@@ -12,33 +12,12 @@ import {
   Utensils,
   MapPin,
   CheckCircle2,
-  Percent
+  Percent,
+  Star
 } from 'lucide-react';
 import PopularDealsSection from '../components/PopularDealsSection';
 import HeritagePizzaCard from '../components/HeritagePizzaCard';
 import DealsFilterBar from '../components/DealsFilterBar';
-
-function PizzaArt({ tone = 'classic', className = '' }) {
-  const crust =
-    tone === 'pepperoni'
-      ? 'radial-gradient(circle at 50% 50%, #f3d99b 0%, #eac97e 45%, #d9a94f 60%, #c98f34 100%)'
-      : 'radial-gradient(circle at 50% 50%, #f6e3b4 0%, #eccd88 45%, #d9ab55 65%, #b9843a 100%)';
-  return (
-    <div className={`relative rounded-full overflow-hidden ${className}`} style={{ background: crust }}>
-      <div
-        className="absolute inset-[12%] rounded-full"
-        style={{
-          background:
-            tone === 'pepperoni'
-              ? 'repeating-conic-gradient(#c23b2b 0deg 8deg, #d94f3d 8deg 16deg)'
-              : 'repeating-conic-gradient(#8a9b4f 0deg 10deg, #6f8a3f 10deg 20deg)',
-          opacity: 0.55,
-        }}
-      />
-      <div className="absolute inset-[30%] rounded-full bg-[#e7c26a]/70" />
-    </div>
-  );
-}
 
 export default function Home({
   menuItems = [],
@@ -57,6 +36,7 @@ export default function Home({
       tag: 'PAKISTANI SPECIALS',
       cta: 'Explore Traditional Menu',
       link: '/menu',
+      image: '/images/sindhi-achari.jpg',
       bg: 'linear-gradient(135deg, #1f4a24, #2D7A38)',
     },
     {
@@ -65,6 +45,7 @@ export default function Home({
       tag: 'MIDNIGHT SPECIAL',
       cta: 'Order Midnight Deal',
       link: '/deals',
+      image: '/images/midnight-deal.jpg',
       bg: 'linear-gradient(135deg, #0b1120, #1e293b)',
     },
     {
@@ -73,6 +54,7 @@ export default function Home({
       tag: 'MEGA DEAL',
       cta: 'Grab The Deal',
       link: '/deals',
+      image: '/images/double-the-fun.jpg',
       bg: 'linear-gradient(135deg, #c9181f, #E31B23)',
     },
   ];
@@ -101,12 +83,15 @@ export default function Home({
     if (activeFilter === 'double-fun') {
       return item.name.toLowerCase().includes('double');
     }
-    return false;
+    if (activeFilter === 'traditional') {
+      return item.category === 'Traditional Pizzas';
+    }
+    return true;
   });
 
   return (
     <div className="space-y-8 sm:space-y-12 pb-12">
-      {/* Top Filter Bar with 'Select area' & Category Pills Matching Screenshot 2 */}
+      {/* Deals Filter Bar matching Screenshot 2 */}
       <DealsFilterBar
         selectedCity={city}
         selectedBranch={branch}
@@ -121,9 +106,6 @@ export default function Home({
           className="relative rounded-3xl overflow-hidden shadow-xl min-h-[320px] sm:min-h-[400px] flex items-center justify-between px-6 sm:px-12 transition-all"
           style={{ background: slides[slideIdx].bg }}
         >
-          <PizzaArt tone="classic" className="absolute -left-12 -top-12 w-48 h-48 opacity-40 blur-xs" />
-          <PizzaArt tone="pepperoni" className="absolute -right-8 -bottom-8 w-60 h-60 opacity-30 blur-xs" />
-
           <div className="relative z-10 max-w-xl text-white py-8">
             <span className="inline-block bg-white/20 backdrop-blur-md px-3 py-1 rounded-full text-[11px] font-black tracking-widest uppercase mb-3">
               {slides[slideIdx].tag}
@@ -154,8 +136,14 @@ export default function Home({
             </div>
           </div>
 
-          <div className="hidden lg:flex relative z-10 items-center justify-center pr-8">
-            <PizzaArt tone="pepperoni" className="w-64 h-64 shadow-2xl ring-8 ring-white/10" />
+          <div className="hidden lg:flex relative z-10 items-center justify-center pr-6">
+            <div className="w-72 h-72 rounded-full overflow-hidden border-4 border-white/20 shadow-2xl ring-8 ring-white/10 transform hover:scale-105 transition-transform duration-500">
+              <img
+                src={slides[slideIdx].image}
+                alt={slides[slideIdx].title}
+                className="w-full h-full object-cover"
+              />
+            </div>
           </div>
 
           {/* Carousel Arrows */}
@@ -285,26 +273,104 @@ export default function Home({
         </section>
       )}
 
-      {/* Quick Category Icons */}
+      {/* Photographic Category Navigation */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
+        <div className="flex items-center justify-between mb-4">
+          <div>
+            <span className="text-xs font-black tracking-widest text-[#2D7A38] uppercase">Explore Categories</span>
+            <h3 className="text-xl sm:text-2xl font-black text-gray-900 tracking-tight">What Are You Craving Today?</h3>
+          </div>
+          <Link to="/menu" className="text-xs font-bold text-[#E31B23] hover:underline flex items-center gap-1">
+            <span>View Full Menu</span>
+            <ArrowRight size={14} />
+          </Link>
+        </div>
+
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
           {[
-            { label: 'Pizza Deals', link: '/deals', icon: '🍕', bg: 'bg-red-50 hover:bg-red-100', text: 'text-[#E31B23]' },
-            { label: 'Special Pizzas', link: '/menu?category=Specialty%20Pizzas', icon: '⭐', bg: 'bg-green-50 hover:bg-green-100', text: 'text-[#2D7A38]' },
-            { label: 'Traditional', link: '/menu?category=Traditional%20Pizzas', icon: '🔥', bg: 'bg-amber-50 hover:bg-amber-100', text: 'text-amber-800' },
-            { label: 'Starters & Fries', link: '/menu?category=Starters%20%26%20Appetizers', icon: '🍟', bg: 'bg-yellow-50 hover:bg-yellow-100', text: 'text-yellow-800' },
-            { label: 'Stuffed Rolls', link: '/menu?category=Stuffed%20Pizza%20Rolls', icon: '🌯', bg: 'bg-orange-50 hover:bg-orange-100', text: 'text-orange-800' },
-            { label: 'Desserts & Drinks', link: '/menu?category=Desserts', icon: '🥤', bg: 'bg-purple-50 hover:bg-purple-100', text: 'text-purple-800' },
+            { label: 'Pizza Deals', link: '/deals', img: '/images/share-box-deal.jpg' },
+            { label: 'Specialty Pizzas', link: '/menu?category=Specialty%20Pizzas', img: '/images/ranch-passion.jpg' },
+            { label: 'Traditional Pizzas', link: '/menu?category=Traditional%20Pizzas', img: '/images/sindhi-achari.jpg' },
+            { label: 'Starters & Sides', link: '/menu?category=Starters%20%26%20Appetizers', img: '/images/loaded-fries.jpg' },
+            { label: 'Stuffed Rolls', link: '/menu?category=Stuffed%20Pizza%20Rolls', img: '/images/center-special-roll.jpg' },
+            { label: 'Desserts & Drinks', link: '/menu?category=Desserts', img: '/images/choco-lava.jpg' },
           ].map((cat) => (
             <Link
               key={cat.label}
               to={cat.link}
-              className={`p-4 rounded-2xl ${cat.bg} border border-black/5 transition-all text-center flex flex-col items-center gap-1.5 group hover:shadow-sm`}
+              className="group relative rounded-2xl overflow-hidden aspect-4/3 shadow-sm hover:shadow-xl transition-all border border-gray-200 flex flex-col justify-end p-3 bg-gray-900"
             >
-              <span className="text-2xl group-hover:scale-110 transition-transform">{cat.icon}</span>
-              <span className={`text-xs font-black ${cat.text}`}>{cat.label}</span>
+              <img
+                src={cat.img}
+                alt={cat.label}
+                className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 opacity-80"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent" />
+              <span className="relative z-10 text-xs font-black text-white leading-tight drop-shadow">
+                {cat.label}
+              </span>
             </Link>
           ))}
+        </div>
+      </section>
+
+      {/* Verified Customer Reviews */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="bg-gradient-to-br from-amber-50 to-orange-50/60 rounded-3xl p-6 sm:p-10 border border-amber-200/60 shadow-xs">
+          <div className="text-center max-w-xl mx-auto mb-8">
+            <span className="inline-flex items-center gap-1 text-xs font-black text-amber-800 bg-amber-100 px-3 py-1 rounded-full uppercase tracking-wider mb-2">
+              <Star size={12} className="fill-amber-500 text-amber-500" /> Verified Customer Feedback
+            </span>
+            <h3 className="text-2xl sm:text-3xl font-black text-gray-900 tracking-tight">Loved By Pizza Lovers Across Pakistan</h3>
+            <p className="text-xs sm:text-sm text-gray-600 mt-1">Real reviews from our regular customers in Karachi, Lahore, & Islamabad.</p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="bg-white p-6 rounded-2xl border border-amber-100 shadow-sm flex flex-col justify-between">
+              <div>
+                <div className="flex text-amber-400 gap-0.5 mb-2">
+                  {[...Array(5)].map((_, i) => <Star key={i} size={15} className="fill-amber-400" />)}
+                </div>
+                <p className="text-xs text-gray-700 italic leading-relaxed">
+                  "The Sindhi Achari Pizza is next level! Perfect spicy achari kick and generous chicken chunks. Delivered hot to our DHA Clifton office in under 30 mins."
+                </p>
+              </div>
+              <div className="mt-4 pt-3 border-t border-gray-100 flex items-center justify-between text-xs">
+                <span className="font-extrabold text-gray-900">Hamza K.</span>
+                <span className="text-[11px] font-bold text-gray-400">DHA Phase 5, Karachi</span>
+              </div>
+            </div>
+
+            <div className="bg-white p-6 rounded-2xl border border-amber-100 shadow-sm flex flex-col justify-between">
+              <div>
+                <div className="flex text-amber-400 gap-0.5 mb-2">
+                  {[...Array(5)].map((_, i) => <Star key={i} size={15} className="fill-amber-400" />)}
+                </div>
+                <p className="text-xs text-gray-700 italic leading-relaxed">
+                  "Ordered Double The Fun medium deal for family weekend. Crust was thin, crispy, and loaded with melted mozzarella. Best value pizza in Gulberg Lahore!"
+                </p>
+              </div>
+              <div className="mt-4 pt-3 border-t border-gray-100 flex items-center justify-between text-xs">
+                <span className="font-extrabold text-gray-900">Zainab R.</span>
+                <span className="text-[11px] font-bold text-gray-400">Gulberg III, Lahore</span>
+              </div>
+            </div>
+
+            <div className="bg-white p-6 rounded-2xl border border-amber-100 shadow-sm flex flex-col justify-between">
+              <div>
+                <div className="flex text-amber-400 gap-0.5 mb-2">
+                  {[...Array(5)].map((_, i) => <Star key={i} size={15} className="fill-amber-400" />)}
+                </div>
+                <p className="text-xs text-gray-700 italic leading-relaxed">
+                  "The Center Special Spin Roll with Ranchy sauce is unbelievable. Ordering online was so smooth and the rider delivered piping hot in Jinnah Super F-7."
+                </p>
+              </div>
+              <div className="mt-4 pt-3 border-t border-gray-100 flex items-center justify-between text-xs">
+                <span className="font-extrabold text-gray-900">Usman A.</span>
+                <span className="text-[11px] font-bold text-gray-400">F-7 Markaz, Islamabad</span>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 

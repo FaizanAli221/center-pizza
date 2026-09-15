@@ -4,27 +4,6 @@ import { Search, Plus, SlidersHorizontal, Flame, X, Check } from 'lucide-react';
 import HeritagePizzaCard from '../components/HeritagePizzaCard';
 import DealsFilterBar from '../components/DealsFilterBar';
 
-function PizzaArt({ tone = 'classic', className = '' }) {
-  const crust =
-    tone === 'pepperoni'
-      ? 'radial-gradient(circle at 50% 50%, #f3d99b 0%, #eac97e 45%, #d9a94f 60%, #c98f34 100%)'
-      : 'radial-gradient(circle at 50% 50%, #f6e3b4 0%, #eccd88 45%, #d9ab55 65%, #b9843a 100%)';
-  return (
-    <div className={`relative rounded-full overflow-hidden ${className}`} style={{ background: crust }}>
-      <div
-        className="absolute inset-[12%] rounded-full"
-        style={{
-          background:
-            tone === 'pepperoni'
-              ? 'repeating-conic-gradient(#c23b2b 0deg 8deg, #d94f3d 8deg 16deg)'
-              : 'repeating-conic-gradient(#8a9b4f 0deg 10deg, #6f8a3f 10deg 20deg)',
-          opacity: 0.55,
-        }}
-      />
-      <div className="absolute inset-[30%] rounded-full bg-[#e7c26a]/70" />
-    </div>
-  );
-}
 
 export default function Menu({
   menuItems = [],
@@ -245,21 +224,37 @@ export default function Menu({
                   key={item.id}
                   className="bg-white rounded-3xl border border-gray-200 overflow-hidden hover:shadow-xl transition-all duration-300 flex flex-col justify-between"
                 >
-                  <div className="relative p-4 bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center min-h-[140px]">
-                    {item.tag && (
-                      <span className="absolute top-3 left-3 bg-[#1A1A1A] text-white text-[9px] font-black px-2 py-0.5 rounded-full">
-                        {item.tag.replace('\n', ' ')}
-                      </span>
-                    )}
-                    {item.ribbon && (
-                      <span className="absolute top-3 right-3 bg-[#E31B23] text-white text-[9px] font-black px-2 py-0.5 rounded-full">
-                        {item.ribbon}
-                      </span>
-                    )}
-                    <PizzaArt
-                      tone={item.category?.includes('Traditional') ? 'classic' : 'pepperoni'}
-                      className="w-24 h-24 shadow-sm"
+                  <div className="relative aspect-16/10 w-full overflow-hidden bg-gray-900 group">
+                    <img
+                      src={item.image || '/images/chicken-tikka.jpg'}
+                      alt={item.name}
+                      className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
+                      onError={(e) => {
+                        e.target.src = '/images/chicken-tikka.jpg';
+                      }}
                     />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/20 pointer-events-none" />
+
+                    <div className="absolute top-3 left-3 flex flex-col gap-1 z-10">
+                      {item.tag && (
+                        <span className="bg-[#1A1A1A] text-white text-[9px] font-black px-2 py-0.5 rounded-full uppercase shadow">
+                          {item.tag.replace('\n', ' ')}
+                        </span>
+                      )}
+                    </div>
+
+                    <div className="absolute top-3 right-3 flex flex-col gap-1 z-10">
+                      {item.ribbon && (
+                        <span className="bg-[#E31B23] text-white text-[9px] font-black px-2 py-0.5 rounded-full uppercase shadow">
+                          {item.ribbon}
+                        </span>
+                      )}
+                      {item.isPopular && !item.ribbon && (
+                        <span className="bg-amber-400 text-gray-950 text-[9px] font-black px-2 py-0.5 rounded-full uppercase shadow">
+                          ★ Bestseller
+                        </span>
+                      )}
+                    </div>
                   </div>
 
                   <div className="p-4 sm:p-5 flex flex-col flex-1 justify-between">

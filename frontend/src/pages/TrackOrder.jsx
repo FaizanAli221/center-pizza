@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Search, Compass, CheckCircle2, Clock, MapPin, Phone, ChefHat, Bike, AlertCircle, RefreshCw } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { Search, Compass, CheckCircle2, Clock, MapPin, Phone, ChefHat, Bike, AlertCircle, RefreshCw, ShoppingBag } from 'lucide-react';
 import { fetchOrderById } from '../api';
 
 export default function TrackOrder() {
@@ -7,19 +7,40 @@ export default function TrackOrder() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [orderData, setOrderData] = useState(null);
+  const [recentOrders, setRecentOrders] = useState([]);
 
-  const handleSearch = async (e) => {
-    e.preventDefault();
-    if (!orderIdInput.trim()) return;
+  useEffect(() => {
+    try {
+      const saved = JSON.parse(localStorage.getItem('center_pizza_orders') || '[]');
+      if (Array.isArray(saved) && saved.length > 0) {
+        setRecentOrders(saved);
+        setOrderData(saved[0]);
+        setOrderIdInput(saved[0].orderId);
+      }
+    } catch (e) {
+      console.warn('Could not load saved orders', e);
+    }
+  }, []);
+
+  const handleSearch = async (e, targetId) => {
+    if (e) e.preventDefault();
+    const queryId = targetId || orderIdInput.trim();
+    if (!queryId) return;
 
     setLoading(true);
     setError(null);
     try {
-      const order = await fetchOrderById(orderIdInput.trim());
+      const order = await fetchOrderById(queryId);
       setOrderData(order);
     } catch (err) {
-      setError(err.message || 'No active order found with this ID. Please double check.');
-      setOrderData(null);
+      // If server lookup fails, fallback to local match if available
+      const localMatch = recentOrders.find((o) => o.orderId === queryId);
+      if (localMatch) {
+        setOrderData(localMatch);
+      } else {
+        setError(err.message || 'No active order found with this ID. Please double check.');
+        setOrderData(null);
+      }
     } finally {
       setLoading(false);
     }
@@ -84,6 +105,30 @@ export default function TrackOrder() {
           )}
         </button>
       </form>
+
+      {/* Recent Orders Quick Select Chips */}
+      {recentOrders.length > 0 && (
+        <div className="flex flex-wrap items-center gap-2">
+          <span className="text-xs font-bold text-gray-500">Recent Orders:</span>
+          {recentOrders.slice(0, 4).map((ord) => (
+            <button
+              key={ord.orderId}
+              type="button"
+              onClick={() => {
+                setOrderIdInput(ord.orderId);
+                handleSearch(null, ord.orderId);
+              }}
+              className={`px-3 py-1.5 rounded-xl border text-xs font-black transition-all ${
+                orderData?.orderId === ord.orderId
+                  ? 'bg-[#E31B23] text-white border-[#E31B23] shadow-xs'
+                  : 'bg-white text-gray-700 border-gray-200 hover:border-gray-300'
+              }`}
+            >
+              #{ord.orderId}
+            </button>
+          ))}
+        </div>
+      )}
 
       {/* Error Message */}
       {error && (

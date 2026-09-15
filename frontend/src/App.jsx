@@ -11,6 +11,7 @@ import Deals from './pages/Deals';
 import Locations from './pages/Locations';
 import TrackOrder from './pages/TrackOrder';
 import About from './pages/About';
+import defaultMenuData from './data/menu.json';
 import { fetchCities, fetchMenu, submitOrder, fetchHealth } from './api';
 import {
   X,
@@ -213,12 +214,42 @@ function CartDrawer({
   city,
   onProceedCheckout,
 }) {
+  const [promoInput, setPromoInput] = useState('');
+  const [discountAmount, setDiscountAmount] = useState(0);
+  const [promoMessage, setPromoMessage] = useState(null);
+
   if (!open) return null;
 
   const cartList = Object.values(cart);
   const subtotal = cartList.reduce((acc, it) => acc + it.price * it.quantity, 0);
-  const deliveryFee = orderType === 'delivery' && subtotal > 0 ? 100 : 0;
-  const grandTotal = subtotal + deliveryFee;
+  
+  // Free delivery over RS 2,000
+  const freeDeliveryLimit = 2000;
+  const isFreeDelivery = subtotal >= freeDeliveryLimit || orderType !== 'delivery';
+  const deliveryFee = orderType === 'delivery' && subtotal > 0 ? (isFreeDelivery ? 0 : 100) : 0;
+  const missingForFree = Math.max(0, freeDeliveryLimit - subtotal);
+  const progressPercent = Math.min(100, Math.round((subtotal / freeDeliveryLimit) * 100));
+
+  const finalGrandTotal = Math.max(0, subtotal + deliveryFee - discountAmount);
+
+  const handleApplyPromo = (e) => {
+    e.preventDefault();
+    const code = promoInput.trim().toUpperCase();
+    if (code === 'CENTER20') {
+      const disc = Math.round(subtotal * 0.2);
+      setDiscountAmount(disc);
+      setPromoMessage({ type: 'success', text: 'CENTER20 applied! 20% OFF' });
+    } else if (code === 'WELCOME') {
+      setDiscountAmount(200);
+      setPromoMessage({ type: 'success', text: 'WELCOME applied! RS. 200 OFF' });
+    } else if (code === 'PIZZA100') {
+      setDiscountAmount(100);
+      setPromoMessage({ type: 'success', text: 'PIZZA100 applied! RS. 100 OFF' });
+    } else {
+      setDiscountAmount(0);
+      setPromoMessage({ type: 'error', text: 'Invalid promo code. Try CENTER20' });
+    }
+  };
 
   return (
     <div
@@ -242,6 +273,28 @@ function CartDrawer({
             <X size={20} />
           </button>
         </div>
+
+        {/* Free Delivery Bar Banner */}
+        {orderType === 'delivery' && cartList.length > 0 && (
+          <div className="bg-amber-50 p-3 border-b border-amber-200/60 text-xs">
+            {isFreeDelivery ? (
+              <p className="font-extrabold text-green-700 flex items-center gap-1.5">
+                🎉 Congratulations! You unlocked FREE Delivery!
+              </p>
+            ) : (
+              <p className="font-bold text-amber-900 flex items-center justify-between">
+                <span>Add <strong className="text-[#E31B23] font-black">{money(missingForFree)}</strong> more for FREE Delivery!</span>
+                <span className="text-[10px] text-gray-500 font-semibold">{progressPercent}%</span>
+              </p>
+            )}
+            <div className="w-full bg-amber-200/70 h-2 rounded-full mt-1.5 overflow-hidden">
+              <div
+                className="bg-[#2D7A38] h-full transition-all duration-500 rounded-full"
+                style={{ width: `${progressPercent}%` }}
+              />
+            </div>
+          </div>
+        )}
 
         <div className="bg-gray-100 px-4 py-2 flex items-center justify-between text-xs border-b border-gray-200">
           <span className="font-bold text-gray-700">
@@ -314,20 +367,54 @@ function CartDrawer({
         </div>
 
         {cartList.length > 0 && (
-          <div className="p-4 border-t border-gray-200 bg-white space-y-2">
-            <div className="flex justify-between text-xs text-gray-600">
+          <div className="p-4 border-t border-gray-200 bg-white space-y-2.5">
+            {/* Promo code form */}
+            <form onSubmit={handleApplyPromo} className="flex gap-2">
+              <input
+                type="text"
+                value={promoInput}
+                onChange={(e) => setPromoInput(e.target.value)}
+                placeholder="Promo code (e.g. CENTER20)"
+                className="flex-1 px-3 py-1.5 bg-gray-50 border border-gray-200 rounded-xl text-xs uppercase font-bold focus:outline-none focus:border-[#E31B23]"
+              />
+              <button
+                type="submit"
+                className="bg-gray-900 hover:bg-black text-white text-xs font-black px-3.5 py-1.5 rounded-xl transition-colors shrink-0"
+              >
+                Apply
+              </button>
+            </form>
+            {promoMessage && (
+              <p
+                className={`text-[11px] font-bold ${
+                  promoMessage.type === 'success' ? 'text-green-600' : 'text-red-500'
+                }`}
+              >
+                {promoMessage.text}
+              </p>
+            )}
+
+            <div className="flex justify-between text-xs text-gray-600 pt-1">
               <span>Subtotal</span>
               <span className="font-semibold">{money(subtotal)}</span>
             </div>
             {orderType === 'delivery' && (
               <div className="flex justify-between text-xs text-gray-600">
                 <span>Delivery Fee</span>
-                <span className="font-semibold">{money(deliveryFee)}</span>
+                <span className="font-semibold">
+                  {deliveryFee === 0 ? <strong className="text-green-600">FREE</strong> : money(deliveryFee)}
+                </span>
+              </div>
+            )}
+            {discountAmount > 0 && (
+              <div className="flex justify-between text-xs text-green-700 font-bold">
+                <span>Promo Discount</span>
+                <span>-{money(discountAmount)}</span>
               </div>
             )}
             <div className="flex justify-between text-sm font-black text-gray-900 border-t border-gray-100 pt-2">
               <span>Grand Total</span>
-              <span className="text-[#2D7A38] text-base">{money(grandTotal)}</span>
+              <span className="text-[#2D7A38] text-base">{money(finalGrandTotal)}</span>
             </div>
 
             <button
@@ -361,13 +448,15 @@ function CheckoutModal({
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
   const [address, setAddress] = useState('');
+  const [landmark, setLandmark] = useState('');
+  const [paymentMethod, setPaymentMethod] = useState('cod');
   const [notes, setNotes] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
   const cartList = Object.values(cart);
   const subtotal = cartList.reduce((acc, it) => acc + it.price * it.quantity, 0);
-  const deliveryFee = orderType === 'delivery' && subtotal > 0 ? 100 : 0;
+  const deliveryFee = orderType === 'delivery' && subtotal > 0 && subtotal < 2000 ? 100 : 0;
   const grandTotal = subtotal + deliveryFee;
 
   const handleSubmit = async (e) => {
@@ -381,13 +470,18 @@ function CheckoutModal({
 
     setLoading(true);
     try {
+      const fullAddress = orderType === 'delivery' 
+        ? `${address.trim()}${landmark.trim() ? ` (Near: ${landmark.trim()})` : ''}`
+        : `Pickup from: ${branch?.name || 'Main Branch'}`;
+
       const orderPayload = {
         orderType,
         city,
+        paymentMethod,
         customer: {
           name: name.trim(),
           phone: phone.trim(),
-          address: orderType === 'delivery' ? address.trim() : `Pickup from: ${branch?.name || 'Main Branch'}`,
+          address: fullAddress,
         },
         items: cartList.map((it) => ({
           id: it.id,
@@ -400,6 +494,16 @@ function CheckoutModal({
       };
 
       const res = await submitOrder(orderPayload);
+
+      // Save order into localStorage for TrackOrder page
+      try {
+        const existingOrders = JSON.parse(localStorage.getItem('center_pizza_orders') || '[]');
+        const updated = [res.order, ...existingOrders.filter((o) => o.orderId !== res.order.orderId)];
+        localStorage.setItem('center_pizza_orders', JSON.stringify(updated));
+      } catch (err) {
+        console.warn('Failed saving to localStorage', err);
+      }
+
       onOrderSuccess(res.order);
     } catch (err) {
       setError(err.message || 'Failed to place order. Please try again.');
@@ -450,30 +554,68 @@ function CheckoutModal({
           </div>
 
           <div>
-            <label className="block text-xs font-bold text-gray-700 mb-1">Phone Number *</label>
+            <label className="block text-xs font-bold text-gray-700 mb-1">Phone Number (WhatsApp / Call) *</label>
             <input
               type="tel"
               required
               value={phone}
               onChange={(e) => setPhone(e.target.value)}
-              placeholder="0300-1234567"
+              placeholder="0331-2130709"
               className="w-full px-3 py-2 bg-gray-50 border border-gray-200 rounded-xl text-xs focus:outline-none focus:border-[#E31B23]"
             />
           </div>
 
           {orderType === 'delivery' && (
-            <div>
-              <label className="block text-xs font-bold text-gray-700 mb-1">Delivery Address *</label>
-              <textarea
-                required
-                rows={2}
-                value={address}
-                onChange={(e) => setAddress(e.target.value)}
-                placeholder="House/Apartment #, Street, Area/Sector..."
-                className="w-full px-3 py-2 bg-gray-50 border border-gray-200 rounded-xl text-xs focus:outline-none focus:border-[#E31B23]"
-              />
-            </div>
+            <>
+              <div>
+                <label className="block text-xs font-bold text-gray-700 mb-1">Delivery Address *</label>
+                <textarea
+                  required
+                  rows={2}
+                  value={address}
+                  onChange={(e) => setAddress(e.target.value)}
+                  placeholder="House/Apartment #, Street, Area/Sector..."
+                  className="w-full px-3 py-2 bg-gray-50 border border-gray-200 rounded-xl text-xs focus:outline-none focus:border-[#E31B23]"
+                />
+              </div>
+
+              <div>
+                <label className="block text-xs font-bold text-gray-700 mb-1">Nearest Landmark (Optional)</label>
+                <input
+                  type="text"
+                  value={landmark}
+                  onChange={(e) => setLandmark(e.target.value)}
+                  placeholder="e.g. Opposite Jamia Masjid / Near Metro Station"
+                  className="w-full px-3 py-2 bg-gray-50 border border-gray-200 rounded-xl text-xs focus:outline-none focus:border-[#E31B23]"
+                />
+              </div>
+            </>
           )}
+
+          {/* Payment Method Selector */}
+          <div>
+            <label className="block text-xs font-bold text-gray-700 mb-1.5">Select Payment Method *</label>
+            <div className="grid grid-cols-3 gap-2">
+              {[
+                { id: 'cod', label: '💵 Cash on Delivery' },
+                { id: 'card', label: '💳 Card on Delivery' },
+                { id: 'easypaisa', label: '📱 JazzCash / Easypaisa' },
+              ].map((pm) => (
+                <button
+                  key={pm.id}
+                  type="button"
+                  onClick={() => setPaymentMethod(pm.id)}
+                  className={`p-2 rounded-xl border text-[11px] font-bold text-center transition-all ${
+                    paymentMethod === pm.id
+                      ? 'border-[#2D7A38] bg-green-50 text-[#2D7A38] ring-2 ring-green-300'
+                      : 'border-gray-200 hover:border-gray-300 text-gray-600 bg-gray-50'
+                  }`}
+                >
+                  {pm.label}
+                </button>
+              ))}
+            </div>
+          </div>
 
           <div>
             <label className="block text-xs font-bold text-gray-700 mb-1">Order Notes (Optional)</label>
@@ -481,7 +623,7 @@ function CheckoutModal({
               type="text"
               value={notes}
               onChange={(e) => setNotes(e.target.value)}
-              placeholder="e.g. Extra sauce, call upon arrival"
+              placeholder="e.g. Extra sauce, ring bell twice"
               className="w-full px-3 py-2 bg-gray-50 border border-gray-200 rounded-xl text-xs focus:outline-none focus:border-[#E31B23]"
             />
           </div>
@@ -495,7 +637,7 @@ function CheckoutModal({
               </div>
             ))}
             <div className="border-t border-gray-200 pt-1.5 flex justify-between font-black text-xs text-gray-900">
-              <span>Total Payable:</span>
+              <span>Total Payable ({paymentMethod.toUpperCase()}):</span>
               <span className="text-[#2D7A38] text-sm">{money(grandTotal)}</span>
             </div>
           </div>
@@ -597,7 +739,7 @@ export default function App() {
   const [selectedBranch, setSelectedBranch] = useState(DEFAULT_CITIES[0].branches[0]);
   const [orderType, setOrderType] = useState('delivery');
 
-  const [menuItems, setMenuItems] = useState([]);
+  const [menuItems, setMenuItems] = useState(defaultMenuData.items || []);
   const [apiOnline, setApiOnline] = useState(false);
   const [cart, setCart] = useState({});
 

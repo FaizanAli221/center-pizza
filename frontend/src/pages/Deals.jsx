@@ -1,27 +1,6 @@
 import React, { useState, useMemo } from 'react';
 import { Tag, Sparkles, Plus, Check, Flame } from 'lucide-react';
 
-function PizzaArt({ tone = 'pepperoni', className = '' }) {
-  const crust =
-    tone === 'pepperoni'
-      ? 'radial-gradient(circle at 50% 50%, #f3d99b 0%, #eac97e 45%, #d9a94f 60%, #c98f34 100%)'
-      : 'radial-gradient(circle at 50% 50%, #f6e3b4 0%, #eccd88 45%, #d9ab55 65%, #b9843a 100%)';
-  return (
-    <div className={`relative rounded-full overflow-hidden ${className}`} style={{ background: crust }}>
-      <div
-        className="absolute inset-[12%] rounded-full"
-        style={{
-          background:
-            tone === 'pepperoni'
-              ? 'repeating-conic-gradient(#c23b2b 0deg 8deg, #d94f3d 8deg 16deg)'
-              : 'repeating-conic-gradient(#8a9b4f 0deg 10deg, #6f8a3f 10deg 20deg)',
-          opacity: 0.55,
-        }}
-      />
-      <div className="absolute inset-[30%] rounded-full bg-[#e7c26a]/70" />
-    </div>
-  );
-}
 
 export default function Deals({ menuItems, onAddToCart }) {
   const [activeFilter, setActiveFilter] = useState('All');
@@ -110,21 +89,29 @@ export default function Deals({ menuItems, onAddToCart }) {
             key={deal.id}
             className="bg-white rounded-3xl border border-gray-200 overflow-hidden hover:shadow-lg transition-all flex flex-col justify-between group"
           >
-            <div className="relative p-6 bg-gradient-to-br from-amber-50 to-orange-50/50 flex items-center justify-center min-h-[160px]">
-              <div className="absolute top-4 left-4 flex flex-col gap-1">
+            <div className="relative aspect-16/10 w-full overflow-hidden bg-gray-900">
+              <img
+                src={deal.image || '/images/double-the-fun.jpg'}
+                alt={deal.name}
+                className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
+                onError={(e) => {
+                  e.target.src = '/images/double-the-fun.jpg';
+                }}
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/30 pointer-events-none" />
+
+              <div className="absolute top-4 left-4 flex flex-col gap-1 z-10">
                 {deal.tag && (
-                  <span className="bg-[#1A1A1A] text-white text-[9px] font-black px-2.5 py-1 rounded-full uppercase">
+                  <span className="bg-[#1A1A1A] text-white text-[9px] font-black px-2.5 py-1 rounded-full uppercase shadow">
                     {deal.tag.replace('\n', ' ')}
                   </span>
                 )}
                 {deal.ribbon && (
-                  <span className="bg-[#E31B23] text-white text-[9px] font-black px-2.5 py-1 rounded-full uppercase">
+                  <span className="bg-[#E31B23] text-white text-[9px] font-black px-2.5 py-1 rounded-full uppercase shadow">
                     {deal.ribbon}
                   </span>
                 )}
               </div>
-
-              <PizzaArt tone="pepperoni" className="w-28 h-28 shadow-md group-hover:scale-105 transition-transform" />
             </div>
 
             <div className="p-6 flex flex-col flex-1 justify-between">
