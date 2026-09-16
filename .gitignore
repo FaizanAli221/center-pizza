@@ -9,6 +9,7 @@ dist/
 dist-ssr/
 build/
 .vercel/
+.wrangler/
 
 # Environment files (keep .env.example tracked)
 .env
