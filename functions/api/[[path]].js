@@ -1,4 +1,4 @@
-import menuData from '../../backend/data/menu.json';
+import menuData from '../data/menu.json';
 
 export async function onRequest(context) {
   const { request, params } = context;

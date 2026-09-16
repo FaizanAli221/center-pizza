@@ -1,5 +1,7 @@
 name = "center-pizza"
 pages_build_output_dir = "./dist"
+compatibility_date = "2024-09-25"
+compatibility_flags = [ "nodejs_compat" ]
 
 [vars]
 ENVIRONMENT = "production"
