@@ -103,7 +103,7 @@ export async function onRequest(context) {
           status: 'preparing',
           orderType: 'delivery',
           city: 'Karachi',
-          customer: { name: 'Guest Customer', phone: '0331-2130709', address: 'Delivery Address' },
+          customer: { name: 'Guest Customer', phone: '0331-2152010', address: 'Delivery Address' },
           items: [{ id: 'pd-001', name: 'Double The Fun', price: 2099, quantity: 1 }],
           totalAmount: 2199,
           estimated: { deliveryEtaMinutes: 25 },

@@ -33,24 +33,24 @@ const DEFAULT_CITIES = [
     id: 'khi',
     name: 'Karachi',
     branches: [
-      { id: 'khi-clifton', name: 'Clifton Block 4', phone: '021-35874221', deliveryEtaMinutes: 35 },
-      { id: 'khi-gulshan', name: 'Gulshan-e-Iqbal Block 13', phone: '021-34981122', deliveryEtaMinutes: 40 },
-      { id: 'khi-dha', name: 'DHA Phase 5 Badar Commercial', phone: '021-35345566', deliveryEtaMinutes: 30 },
+      { id: 'khi-clifton', name: 'Clifton Block 4', phone: '0331-2152010', deliveryEtaMinutes: 35 },
+      { id: 'khi-gulshan', name: 'Gulshan-e-Iqbal Block 13', phone: '0317-5563119', deliveryEtaMinutes: 40 },
+      { id: 'khi-dha', name: 'DHA Phase 5 Badar Commercial', phone: '0309-4522103', deliveryEtaMinutes: 30 },
     ],
   },
   {
     id: 'lhr',
     name: 'Lahore',
     branches: [
-      { id: 'lhr-gulberg', name: 'Gulberg III Main Boulevard', phone: '042-35756611', deliveryEtaMinutes: 35 },
-      { id: 'lhr-johar', name: 'Johar Town G-1 Market', phone: '042-35312344', deliveryEtaMinutes: 40 },
+      { id: 'lhr-gulberg', name: 'Gulberg III Main Boulevard', phone: '0333-7892556', deliveryEtaMinutes: 35 },
+      { id: 'lhr-johar', name: 'Johar Town G-1 Market', phone: '0309-1195233', deliveryEtaMinutes: 40 },
     ],
   },
   {
     id: 'isb',
     name: 'Islamabad',
     branches: [
-      { id: 'isb-f7', name: 'F-7 Markaz Jinnah Super', phone: '051-2651122', deliveryEtaMinutes: 35 },
+      { id: 'isb-f7', name: 'F-7 Markaz Jinnah Super', phone: '0309-2314446', deliveryEtaMinutes: 35 },
     ],
   },
 ];
@@ -560,7 +560,7 @@ function CheckoutModal({
               required
               value={phone}
               onChange={(e) => setPhone(e.target.value)}
-              placeholder="0331-2130709"
+              placeholder="0331-2152010"
               className="w-full px-3 py-2 bg-gray-50 border border-gray-200 rounded-xl text-xs focus:outline-none focus:border-[#E31B23]"
             />
           </div>

@@ -43,10 +43,10 @@ export default function Header({
               <Clock size={13} className="text-white/80" /> Delivery: 11:00 AM - 03:00 AM
             </span>
             <a
-              href="tel:03312130709"
+              href="tel:03312152010"
               className="flex items-center gap-1.5 font-bold hover:text-white/80 transition-colors"
             >
-              <Phone size={13} /> 0331-2130709
+              <Phone size={13} /> 0331-2152010
             </a>
           </div>
 
